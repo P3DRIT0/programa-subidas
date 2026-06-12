@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wallapop Publisher</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Escritorio + automatizacion</p>
+          <h1>Publicador Wallapop</h1>
+          <p class="hero-copy">
+            Primera base para subir productos sin API usando navegador real y una sesion guardada.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <button id="open-login" type="button" class="secondary-button">
+            Login Wallapop
+          </button>
+          <button id="open-vinted-login" type="button" class="secondary-button">
+            Login Vinted
+          </button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Datos del anuncio</h2>
+        <form id="wallapop-form" class="form-grid">
+          <label>
+            Resumen inicial
+            <input
+              name="summary"
+              type="text"
+              maxlength="50"
+              placeholder="Ej. Final Fantasy VI SNES Japon"
+              required
+            />
+          </label>
+
+          <label>
+            Ruta de categoria
+            <select name="category" required>
+              <option value="videojuegos">Videojuegos</option>
+              <option value="consolas">Consolas</option>
+              <option value="accesorios-consolas">Accesorios y recambios de consolas</option>
+            </select>
+          </label>
+
+          <label>
+            Marca
+            <input name="brand" type="text" placeholder="Ej. Square" />
+          </label>
+
+          <label>
+            Plataforma Vinted
+            <input name="vintedPlatform" type="text" placeholder="Ej. Super Famicom, PS5, Switch" />
+          </label>
+
+          <label>
+            Estado
+            <select name="condition" required>
+              <option value="Como nuevo">Como nuevo</option>
+              <option value="Sin abrir">Sin abrir</option>
+              <option value="En su caja">En su caja</option>
+              <option value="Nuevo">Nuevo</option>
+              <option value="En buen estado">En buen estado</option>
+              <option value="En condiciones aceptables">En condiciones aceptables</option>
+              <option value="Lo ha dado todo">Lo ha dado todo</option>
+            </select>
+          </label>
+
+          <label>
+            Clasificación Vinted
+            <select name="vintedContentRating">
+              <option value="PEGI 3">PEGI 3</option>
+              <option value="PEGI 12">PEGI 12</option>
+              <option value="PEGI 16">PEGI 16</option>
+              <option value="PEGI 18">PEGI 18</option>
+              <option value="E - Todos los públicos">E - Todos los públicos</option>
+              <option value="E10+ - Mayores de 10 años">E10+ - Mayores de 10 años</option>
+              <option value="M - Mayores de 17 años">M - Mayores de 17 años</option>
+              <option value="AO - Solo adultos">AO - Solo adultos</option>
+            </select>
+          </label>
+
+          <label>
+            Titulo
+            <input name="title" type="text" placeholder="Si lo dejas vacio, usare el resumen inicial" />
+          </label>
+
+          <label>
+            Precio
+            <input name="price" type="text" inputmode="decimal" placeholder="59.95" required />
+          </label>
+
+          <label class="full-width">
+            Descripcion
+            <textarea
+              name="description"
+              rows="6"
+              placeholder="Describe el producto con el maximo detalle posible"
+              required
+            ></textarea>
+          </label>
+
+          <label>
+            Peso del envio
+            <select name="weight" required>
+              <option value="0 a 1 kg">0 a 1 kg</option>
+              <option value="1 a 2 kg">1 a 2 kg</option>
+              <option value="2 a 5 kg">2 a 5 kg</option>
+              <option value="5 a 10 kg">5 a 10 kg</option>
+              <option value="10 a 20 kg">10 a 20 kg</option>
+              <option value="20 a 30 kg">20 a 30 kg</option>
+            </select>
+          </label>
+
+          <div class="full-width image-section">
+            <div class="section-heading">
+              <span>Fotos del producto</span>
+              <button id="pick-images" type="button" class="secondary-button">
+                Seleccionar imagenes
+              </button>
+            </div>
+            <p class="hint">Acepta `webp`, `jpg`, `jpeg` y `png`.</p>
+            <div id="image-list" class="image-list"></div>
+          </div>
+
+          <label class="toggle">
+            <input id="publish" name="publish" type="checkbox" />
+            <span>Publicar automaticamente al final</span>
+          </label>
+
+          <div class="full-width action-row">
+            <button id="run-wallapop" type="submit" class="primary-button">Ejecutar Wallapop</button>
+            <button id="run-vinted" type="button" class="secondary-button">Ejecutar Vinted</button>
+            <button id="run-both" type="button" class="secondary-button">Ejecutar ambos</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel status-panel">
+        <h2>Estado</h2>
+        <div id="status-box" class="status-box"></div>
+        <div id="result-box" class="result-box"></div>
+      </section>
+    </main>
+
+    <script src="../dist/renderer.js"></script>
+  </body>
+</html>

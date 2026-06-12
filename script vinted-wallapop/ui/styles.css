@@ -1,0 +1,245 @@
+:root {
+  color-scheme: light;
+  --bg: #f4efe7;
+  --panel: rgba(255, 252, 247, 0.92);
+  --panel-border: rgba(24, 49, 83, 0.14);
+  --text: #10233d;
+  --muted: #5d6e82;
+  --accent: #0c8a6a;
+  --accent-strong: #0a6d54;
+  --shadow: 0 18px 50px rgba(22, 47, 74, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(12, 138, 106, 0.18), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(16, 35, 61, 0.14), transparent 28%),
+    linear-gradient(180deg, #f8f4ed 0%, var(--bg) 100%);
+}
+
+.app-shell {
+  width: min(1100px, calc(100% - 40px));
+  margin: 32px auto;
+  display: grid;
+  gap: 20px;
+}
+
+.hero,
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  padding: 28px 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+.hero-copy {
+  margin: 10px 0 0;
+  max-width: 650px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.panel {
+  padding: 24px;
+}
+
+.form-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+label,
+.image-section {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid rgba(16, 35, 61, 0.22);
+  border-radius: 14px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--text);
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid rgba(12, 138, 106, 0.18);
+  border-color: var(--accent);
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.section-heading,
+.action-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-height: 44px;
+}
+
+.image-pill {
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(12, 138, 106, 0.11);
+  color: var(--accent-strong);
+  font-size: 13px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.primary-button,
+.secondary-button {
+  border: 0;
+  cursor: pointer;
+  transition: transform 120ms ease, opacity 120ms ease, background 120ms ease;
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  transform: translateY(-1px);
+}
+
+.primary-button {
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+}
+
+.secondary-button {
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(16, 35, 61, 0.08);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toggle input {
+  width: 18px;
+  height: 18px;
+}
+
+.status-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.status-box,
+.result-box {
+  min-height: 54px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(16, 35, 61, 0.05);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.result-box[data-type="error"] {
+  background: rgba(172, 26, 47, 0.08);
+  color: #7d1630;
+}
+
+@media (max-width: 860px) {
+  .app-shell {
+    width: min(100% - 24px, 1100px);
+    margin: 12px auto 24px;
+  }
+
+  .hero {
+    padding: 22px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions,
+  .action-row {
+    flex-direction: column;
+    justify-content: stretch;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

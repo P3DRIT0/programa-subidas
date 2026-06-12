@@ -1,0 +1,30 @@
+{
+  "name": "script-vinted-wallapop",
+  "version": "1.0.0",
+  "description": "Aplicacion de escritorio para automatizar publicaciones en Wallapop",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "start": "npm run build && set ELECTRON_RUN_AS_NODE=&& electron .",
+    "dev": "npm run build && set ELECTRON_RUN_AS_NODE=&& electron .",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "electron",
+    "playwright",
+    "wallapop",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "playwright": "1.44.1",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "20.12.12",
+    "electron": "28.3.3",
+    "rimraf": "5.0.5",
+    "typescript": "5.4.5"
+  }
+}

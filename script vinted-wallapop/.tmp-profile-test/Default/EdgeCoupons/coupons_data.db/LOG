@@ -1,0 +1,5 @@
+2026/06/12-12:05:20.713 c60 Creating DB C:\Users\Usuario\Desktop\script vinted-wallapop\.tmp-profile-test\Default\EdgeCoupons/coupons_data.db since it was missing.
+2026/06/12-12:05:20.742 c60 Reusing MANIFEST C:\Users\Usuario\Desktop\script vinted-wallapop\.tmp-profile-test\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/06/12-12:05:21.192 5a24 Level-0 table #5: started
+2026/06/12-12:05:21.198 5a24 Level-0 table #5: 682669 bytes OK
+2026/06/12-12:05:21.203 5a24 Delete type=0 #3
