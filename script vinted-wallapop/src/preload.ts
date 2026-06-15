@@ -4,9 +4,11 @@ import type { RendererToMainApi, WallapopFormData } from "./shared";
 const api: RendererToMainApi = {
   openWallapopLogin: () => ipcRenderer.invoke("wallapop:open-login"),
   openVintedLogin: () => ipcRenderer.invoke("vinted:open-login"),
+  openErpLogin: () => ipcRenderer.invoke("erp:open-login"),
   pickImages: () => ipcRenderer.invoke("wallapop:pick-images"),
   publishWallapop: (data: WallapopFormData) => ipcRenderer.invoke("wallapop:publish", data),
   publishVinted: (data: WallapopFormData) => ipcRenderer.invoke("vinted:publish", data),
+  publishErp: (data: WallapopFormData) => ipcRenderer.invoke("erp:publish", data),
   onStatus: (callback) => {
     const listener = (_event: Electron.IpcRendererEvent, message: string) => callback(message);
     ipcRenderer.on("app:status", listener);

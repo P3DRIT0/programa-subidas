@@ -25,6 +25,28 @@ type WallapopPayload = {
   description: string;
   condition: string;
   price: string;
+  stockQuantity: string;
+  erpRegion:
+    | "Sin definir"
+    | "NTSC/JP"
+    | "NTSC/USA"
+    | "PAL/AUS"
+    | "PAL/CH"
+    | "PAL/DE"
+    | "PAL/ES"
+    | "PAL/EU"
+    | "PAL/FR"
+    | "PAL/IT"
+    | "PAL/NL"
+    | "PAL/PT"
+    | "PAL/UK";
+  erpWebCondition:
+    | "Sin definir"
+    | "Completo"
+    | "Incompleto"
+    | "Sellado"
+    | "Solo juego"
+    | "Nuevo";
   weight: WallapopWeight;
   photoPaths: string[];
   publish: boolean;
@@ -33,9 +55,11 @@ type WallapopPayload = {
 type DesktopAppApi = {
   openWallapopLogin: () => Promise<{ ok: boolean; message: string }>;
   openVintedLogin: () => Promise<{ ok: boolean; message: string }>;
+  openErpLogin: () => Promise<{ ok: boolean; message: string }>;
   pickImages: () => Promise<string[]>;
   publishWallapop: (data: WallapopPayload) => Promise<{ ok: boolean; message: string }>;
   publishVinted: (data: WallapopPayload) => Promise<{ ok: boolean; message: string }>;
+  publishErp: (data: WallapopPayload) => Promise<{ ok: boolean; message: string }>;
   onStatus: (callback: (message: string) => void) => () => void;
 };
 
@@ -44,7 +68,9 @@ const form = document.querySelector<HTMLFormElement>("#wallapop-form");
 const pickImagesButton = document.querySelector<HTMLButtonElement>("#pick-images");
 const loginButton = document.querySelector<HTMLButtonElement>("#open-login");
 const vintedLoginButton = document.querySelector<HTMLButtonElement>("#open-vinted-login");
+const erpLoginButton = document.querySelector<HTMLButtonElement>("#open-erp-login");
 const runVintedButton = document.querySelector<HTMLButtonElement>("#run-vinted");
+const runErpButton = document.querySelector<HTMLButtonElement>("#run-erp");
 const runBothButton = document.querySelector<HTMLButtonElement>("#run-both");
 const statusBox = document.querySelector<HTMLElement>("#status-box");
 const resultBox = document.querySelector<HTMLElement>("#result-box");
@@ -56,7 +82,9 @@ if (
   !pickImagesButton ||
   !loginButton ||
   !vintedLoginButton ||
+  !erpLoginButton ||
   !runVintedButton ||
+  !runErpButton ||
   !runBothButton ||
   !statusBox ||
   !resultBox ||
@@ -119,13 +147,16 @@ function getFormData(): WallapopPayload {
     summary: readRequiredText(formData, "summary", "Resumen inicial", 3),
     category: String(formData.get("category") ?? "videojuegos").trim() as WallapopPayload["category"],
     preferSuggestedCategory: true,
-    vintedPlatform: String(formData.get("vintedPlatform") ?? "").trim(),
+    vintedPlatform: String(formData.get("vintedPlatform") ?? "").trim() as WallapopPayload["vintedPlatform"],
     vintedContentRating: String(formData.get("vintedContentRating") ?? "PEGI 3").trim() as WallapopPayload["vintedContentRating"],
     brand: String(formData.get("brand") ?? "").trim(),
     title: String(formData.get("title") ?? "").trim() || readRequiredText(formData, "summary", "Resumen inicial", 3),
     description: readRequiredText(formData, "description", "Descripcion", 10),
     condition: readRequiredText(formData, "condition", "Estado", 2),
     price: readRequiredText(formData, "price", "Precio", 1),
+    stockQuantity: readRequiredText(formData, "stockQuantity", "Cantidad en stock", 1),
+    erpRegion: String(formData.get("erpRegion") ?? "Sin definir").trim() as WallapopPayload["erpRegion"],
+    erpWebCondition: String(formData.get("erpWebCondition") ?? "Sin definir").trim() as WallapopPayload["erpWebCondition"],
     weight: String(formData.get("weight") ?? defaultWeight).trim() as WallapopWeight,
     photoPaths: Array.from(photoPaths),
     publish: safePublishCheckbox.checked,
@@ -172,6 +203,19 @@ vintedLoginButton.addEventListener("click", async () => {
   }
 });
 
+erpLoginButton.addEventListener("click", async () => {
+  setResult("", "ok");
+  setStatus("Abriendo el navegador para iniciar sesion en ERP...");
+  try {
+    const result = await desktopBridge.openErpLogin();
+    setResult(result.message, result.ok ? "ok" : "error");
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "No se pudo abrir ERP para el login.";
+    setResult(message, "error");
+    setStatus("Fallo al abrir el navegador para login en ERP.");
+  }
+});
+
 safeForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   setResult("", "ok");
@@ -200,6 +244,19 @@ runVintedButton.addEventListener("click", async () => {
   }
 });
 
+runErpButton.addEventListener("click", async () => {
+  setResult("", "ok");
+  try {
+    const data = getFormData();
+    setStatus("Lanzando automatizacion de ERP...");
+    const result = await desktopBridge.publishErp(data);
+    setResult(result.message, result.ok ? "ok" : "error");
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "No se pudo validar el formulario.";
+    setResult(message, "error");
+  }
+});
+
 runBothButton.addEventListener("click", async () => {
   setResult("", "ok");
   try {
@@ -213,9 +270,11 @@ runBothButton.addEventListener("click", async () => {
 
     setStatus("Lanzando Vinted...");
     const vintedResult = await desktopBridge.publishVinted(data);
+    setStatus("Lanzando ERP...");
+    const erpResult = await desktopBridge.publishErp(data);
     setResult(
-      `Wallapop: ${wallapopResult.message}\nVinted: ${vintedResult.message}`,
-      vintedResult.ok ? "ok" : "error",
+      `Wallapop: ${wallapopResult.message}\nVinted: ${vintedResult.message}\nERP: ${erpResult.message}`,
+      wallapopResult.ok && vintedResult.ok && erpResult.ok ? "ok" : "error",
     );
   } catch (error) {
     const message = error instanceof Error ? error.message : "No se pudo validar el formulario.";

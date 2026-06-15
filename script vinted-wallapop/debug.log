@@ -581,3 +581,647 @@ once the app is packaged.
 2026-06-12T13:12:58.621Z [status] Seleccionando estado en Vinted...
 2026-06-12T13:12:59.309Z [status] Rellenando precio en Vinted...
 2026-06-12T13:12:59.869Z [status] Formulario de Vinted completado. He dejado la ventana abierta para revisión manual.
+2026-06-15T14:50:00.081Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T14:50:00.082Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T14:52:59.947Z [status] Abriendo Vinted para subir el artículo...
+2026-06-15T14:53:02.255Z [status] Subiendo fotos en Vinted...
+2026-06-15T14:53:02.256Z [vinted] Iniciando subida de fotos.
+2026-06-15T14:53:15.484Z [vinted] Selector .media-select__input-content input[type='file'] encontró 0 nodos.
+2026-06-15T14:53:15.499Z [vinted] Selector .media-select input[type='file'] encontró 0 nodos.
+2026-06-15T14:53:15.515Z [vinted] Selector [data-testid='dropzone'] input[type='file'] encontró 0 nodos.
+2026-06-15T14:53:15.530Z [vinted] Selector [data-testid='media-upload-grid'] ~ .media-select__input input[type='file'] encontró 0 nodos.
+2026-06-15T14:53:15.545Z [vinted] Selector [data-testid='media-select'] input[type='file'] encontró 0 nodos.
+2026-06-15T14:53:15.560Z [vinted] Selector input[type='file'][multiple] encontró 0 nodos.
+2026-06-15T14:53:15.576Z [vinted] Selector input[type='file'][accept*='image'] encontró 0 nodos.
+2026-06-15T14:53:15.591Z [vinted] Selector input[type='file'] encontró 0 nodos.
+2026-06-15T14:53:15.592Z [vinted] No hubo inputs útiles antes del click.
+2026-06-15T14:53:15.761Z [vinted] Numero de botones encontrados en dropzone/media-select: 0.
+2026-06-15T14:53:15.792Z [vinted] No se encontró control de fotos utilizable.
+2026-06-15T14:53:15.792Z [status] He dejado Vinted abierto para que revises el punto exacto del fallo.
+2026-06-15T14:53:33.184Z [status] Abriendo Vinted para iniciar sesión...
+2026-06-15T14:53:34.386Z [status] Inicia sesión manualmente en Vinted y cierra esa ventana cuando termines.
+2026-06-15T14:56:38.079Z [status] Sesión de Vinted guardada.
+2026-06-15T14:56:41.318Z [status] Abriendo Vinted para subir el artículo...
+2026-06-15T14:56:44.477Z [status] Subiendo fotos en Vinted...
+2026-06-15T14:56:44.477Z [vinted] Iniciando subida de fotos.
+2026-06-15T14:56:45.760Z [vinted] Selector .media-select__input-content input[type='file'] encontró 0 nodos.
+2026-06-15T14:56:45.775Z [vinted] Selector .media-select input[type='file'] encontró 0 nodos.
+2026-06-15T14:56:45.791Z [vinted] Selector [data-testid='dropzone'] input[type='file'] encontró 0 nodos.
+2026-06-15T14:56:45.807Z [vinted] Selector [data-testid='media-upload-grid'] ~ .media-select__input input[type='file'] encontró 0 nodos.
+2026-06-15T14:56:45.822Z [vinted] Selector [data-testid='media-select'] input[type='file'] encontró 0 nodos.
+2026-06-15T14:56:45.828Z [vinted] Selector input[type='file'][multiple] encontró 1 nodos.
+2026-06-15T14:56:45.930Z [vinted] setInputFiles correcto con selector input[type='file'][multiple] índice 0.
+2026-06-15T14:56:47.440Z [status] Rellenando título en Vinted...
+2026-06-15T14:56:48.090Z [status] Rellenando descripción en Vinted...
+2026-06-15T14:56:49.246Z [status] Seleccionando categoría en Vinted...
+2026-06-15T14:56:52.832Z [status] Seleccionando plataforma en Vinted...
+2026-06-15T14:57:25.713Z [status] Seleccionando clasificación en Vinted...
+2026-06-15T14:57:26.486Z [status] Seleccionando estado en Vinted...
+2026-06-15T14:57:27.226Z [status] Rellenando precio en Vinted...
+2026-06-15T14:57:27.813Z [status] Formulario de Vinted completado. He dejado la ventana abierta para revisión manual.
+2026-06-15T16:41:32.510Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T16:41:32.511Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T16:43:18.721Z [status] Abriendo Vinted para subir el artículo...
+2026-06-15T16:43:20.007Z [status] Subiendo fotos en Vinted...
+2026-06-15T16:43:20.007Z [vinted] Iniciando subida de fotos.
+2026-06-15T16:43:21.820Z [vinted] Selector .media-select__input-content input[type='file'] encontró 0 nodos.
+2026-06-15T16:43:21.855Z [vinted] Selector .media-select input[type='file'] encontró 0 nodos.
+2026-06-15T16:43:21.870Z [vinted] Selector [data-testid='dropzone'] input[type='file'] encontró 0 nodos.
+2026-06-15T16:43:21.899Z [vinted] Selector [data-testid='media-upload-grid'] ~ .media-select__input input[type='file'] encontró 0 nodos.
+2026-06-15T16:43:21.932Z [vinted] Selector [data-testid='media-select'] input[type='file'] encontró 0 nodos.
+2026-06-15T16:43:21.988Z [vinted] Selector input[type='file'][multiple] encontró 1 nodos.
+2026-06-15T16:43:22.040Z [vinted] setInputFiles correcto con selector input[type='file'][multiple] índice 0.
+2026-06-15T16:43:23.546Z [status] Rellenando título en Vinted...
+2026-06-15T16:43:25.421Z [status] Rellenando descripción en Vinted...
+2026-06-15T16:43:27.853Z [status] Seleccionando categoría en Vinted...
+2026-06-15T16:43:31.463Z [status] Seleccionando plataforma en Vinted...
+2026-06-15T16:44:04.384Z [status] He dejado Vinted abierto para que revises el punto exacto del fallo.
+2026-06-15T16:46:43.052Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T16:46:43.053Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T17:20:08.343Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T17:20:08.344Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T17:21:07.367Z [status] Abriendo Wallapop para iniciar sesion...
+2026-06-15T17:21:08.410Z [status] Inicia sesion manualmente en el navegador. Cuando cierres esa ventana, la sesion quedara guardada.
+2026-06-15T17:23:24.589Z [status] Sesion de Wallapop guardada.
+2026-06-15T17:23:35.456Z [status] Abriendo la pagina de subida de Wallapop...
+2026-06-15T17:23:39.813Z [status] Seleccionando 'Algo que ya no necesito'...
+2026-06-15T17:23:41.530Z [status] Rellenando el resumen inicial...
+2026-06-15T17:23:44.672Z [status] Continuando al formulario completo...
+2026-06-15T17:23:44.889Z [status] Subiendo imagenes...
+2026-06-15T17:23:48.637Z [status] Continuando despues de las fotos...
+2026-06-15T17:23:50.397Z [status] Seleccionando la categoria...
+2026-06-15T17:23:57.037Z [status] Esperando a que carguen los detalles del producto...
+2026-06-15T17:23:58.292Z [status] Rellenando informacion del producto...
+2026-06-15T17:24:01.292Z [status] Seleccionando el peso del envio...
+2026-06-15T17:24:01.509Z [status] Formulario completado. He dejado el navegador abierto para que revises el anuncio antes de publicarlo.
+2026-06-15T17:24:02.174Z [status] Abriendo Vinted para subir el artículo...
+2026-06-15T17:24:02.962Z [status] Subiendo fotos en Vinted...
+2026-06-15T17:24:02.963Z [vinted] Iniciando subida de fotos.
+2026-06-15T17:24:11.251Z [vinted] Selector .media-select__input-content input[type='file'] encontró 0 nodos.
+2026-06-15T17:24:11.266Z [vinted] Selector .media-select input[type='file'] encontró 0 nodos.
+2026-06-15T17:24:11.281Z [vinted] Selector [data-testid='dropzone'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:24:11.297Z [vinted] Selector [data-testid='media-upload-grid'] ~ .media-select__input input[type='file'] encontró 0 nodos.
+2026-06-15T17:24:11.312Z [vinted] Selector [data-testid='media-select'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:24:11.328Z [vinted] Selector input[type='file'][multiple] encontró 1 nodos.
+2026-06-15T17:24:11.437Z [vinted] setInputFiles correcto con selector input[type='file'][multiple] índice 0.
+2026-06-15T17:24:12.939Z [status] Rellenando título en Vinted...
+2026-06-15T17:24:14.082Z [status] Rellenando descripción en Vinted...
+2026-06-15T17:24:15.766Z [status] Seleccionando categoría en Vinted...
+2026-06-15T17:24:19.338Z [status] Seleccionando plataforma en Vinted...
+2026-06-15T17:24:52.210Z [status] He dejado Vinted abierto para que revises el punto exacto del fallo.
+2026-06-15T17:28:36.574Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T17:28:36.575Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T17:29:22.598Z [status] Abriendo Vinted para subir el artículo...
+2026-06-15T17:29:23.743Z [status] Subiendo fotos en Vinted...
+2026-06-15T17:29:23.744Z [vinted] Iniciando subida de fotos.
+2026-06-15T17:29:25.987Z [vinted] Selector .media-select__input-content input[type='file'] encontró 0 nodos.
+2026-06-15T17:29:25.989Z [vinted] Selector .media-select input[type='file'] encontró 0 nodos.
+2026-06-15T17:29:26.002Z [vinted] Selector [data-testid='dropzone'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:29:26.017Z [vinted] Selector [data-testid='media-upload-grid'] ~ .media-select__input input[type='file'] encontró 0 nodos.
+2026-06-15T17:29:26.033Z [vinted] Selector [data-testid='media-select'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:29:26.048Z [vinted] Selector input[type='file'][multiple] encontró 1 nodos.
+2026-06-15T17:29:26.171Z [vinted] setInputFiles correcto con selector input[type='file'][multiple] índice 0.
+2026-06-15T17:29:27.674Z [status] Rellenando título en Vinted...
+2026-06-15T17:29:28.538Z [status] Rellenando descripción en Vinted...
+2026-06-15T17:29:29.729Z [status] Seleccionando categoría en Vinted...
+2026-06-15T17:29:33.300Z [status] Seleccionando plataforma en Vinted...
+2026-06-15T17:30:06.133Z [status] He dejado Vinted abierto para que revises el punto exacto del fallo.
+2026-06-15T17:31:14.872Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T17:31:14.873Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T17:31:47.529Z [status] Abriendo Vinted para subir el artículo...
+2026-06-15T17:31:48.633Z [status] Subiendo fotos en Vinted...
+2026-06-15T17:31:48.634Z [vinted] Iniciando subida de fotos.
+2026-06-15T17:31:50.906Z [vinted] Selector .media-select__input-content input[type='file'] encontró 0 nodos.
+2026-06-15T17:31:50.922Z [vinted] Selector .media-select input[type='file'] encontró 0 nodos.
+2026-06-15T17:31:50.937Z [vinted] Selector [data-testid='dropzone'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:31:50.953Z [vinted] Selector [data-testid='media-upload-grid'] ~ .media-select__input input[type='file'] encontró 0 nodos.
+2026-06-15T17:31:50.969Z [vinted] Selector [data-testid='media-select'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:31:50.985Z [vinted] Selector input[type='file'][multiple] encontró 1 nodos.
+2026-06-15T17:31:51.108Z [vinted] setInputFiles correcto con selector input[type='file'][multiple] índice 0.
+2026-06-15T17:31:52.611Z [status] Rellenando título en Vinted...
+2026-06-15T17:31:53.327Z [status] Rellenando descripción en Vinted...
+2026-06-15T17:31:54.173Z [status] Seleccionando categoría en Vinted...
+2026-06-15T17:31:57.648Z [status] Seleccionando plataforma en Vinted...
+2026-06-15T17:32:30.499Z [status] He dejado Vinted abierto para que revises el punto exacto del fallo.
+2026-06-15T17:34:02.908Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T17:34:02.909Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T17:34:28.283Z [status] Abriendo Vinted para subir el artículo...
+2026-06-15T17:34:31.722Z [status] Subiendo fotos en Vinted...
+2026-06-15T17:34:31.722Z [vinted] Iniciando subida de fotos.
+2026-06-15T17:34:33.004Z [vinted] Selector .media-select__input-content input[type='file'] encontró 0 nodos.
+2026-06-15T17:34:33.020Z [vinted] Selector .media-select input[type='file'] encontró 0 nodos.
+2026-06-15T17:34:33.035Z [vinted] Selector [data-testid='dropzone'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:34:33.038Z [vinted] Selector [data-testid='media-upload-grid'] ~ .media-select__input input[type='file'] encontró 0 nodos.
+2026-06-15T17:34:33.040Z [vinted] Selector [data-testid='media-select'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:34:33.051Z [vinted] Selector input[type='file'][multiple] encontró 1 nodos.
+2026-06-15T17:34:33.144Z [vinted] setInputFiles correcto con selector input[type='file'][multiple] índice 0.
+2026-06-15T17:34:34.658Z [status] Rellenando título en Vinted...
+2026-06-15T17:34:35.510Z [status] Rellenando descripción en Vinted...
+2026-06-15T17:34:36.806Z [status] Seleccionando categoría en Vinted...
+2026-06-15T17:34:40.408Z [status] Seleccionando plataforma en Vinted...
+2026-06-15T17:35:13.351Z [status] He dejado Vinted abierto para que revises el punto exacto del fallo.
+2026-06-15T17:36:00.238Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T17:36:00.239Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T17:36:40.655Z [status] Abriendo Vinted para subir el artículo...
+2026-06-15T17:36:41.938Z [status] Subiendo fotos en Vinted...
+2026-06-15T17:36:41.939Z [vinted] Iniciando subida de fotos.
+2026-06-15T17:36:43.725Z [vinted] Selector .media-select__input-content input[type='file'] encontró 0 nodos.
+2026-06-15T17:36:43.740Z [vinted] Selector .media-select input[type='file'] encontró 0 nodos.
+2026-06-15T17:36:43.756Z [vinted] Selector [data-testid='dropzone'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:36:43.772Z [vinted] Selector [data-testid='media-upload-grid'] ~ .media-select__input input[type='file'] encontró 0 nodos.
+2026-06-15T17:36:43.788Z [vinted] Selector [data-testid='media-select'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:36:43.790Z [vinted] Selector input[type='file'][multiple] encontró 1 nodos.
+2026-06-15T17:36:43.912Z [vinted] setInputFiles correcto con selector input[type='file'][multiple] índice 0.
+2026-06-15T17:36:45.427Z [status] Rellenando título en Vinted...
+2026-06-15T17:36:46.216Z [status] Rellenando descripción en Vinted...
+2026-06-15T17:36:47.158Z [status] Seleccionando categoría en Vinted...
+2026-06-15T17:36:50.675Z [status] Seleccionando plataforma en Vinted...
+2026-06-15T17:37:23.592Z [status] He dejado Vinted abierto para que revises el punto exacto del fallo.
+2026-06-15T17:41:56.287Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T17:41:56.292Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T17:44:01.984Z [status] Abriendo Vinted para subir el artículo...
+2026-06-15T17:44:05.802Z [status] Subiendo fotos en Vinted...
+2026-06-15T17:44:05.802Z [vinted] Iniciando subida de fotos.
+2026-06-15T17:44:07.080Z [vinted] Selector .media-select__input-content input[type='file'] encontró 0 nodos.
+2026-06-15T17:44:07.082Z [vinted] Selector .media-select input[type='file'] encontró 0 nodos.
+2026-06-15T17:44:07.095Z [vinted] Selector [data-testid='dropzone'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:44:07.111Z [vinted] Selector [data-testid='media-upload-grid'] ~ .media-select__input input[type='file'] encontró 0 nodos.
+2026-06-15T17:44:07.126Z [vinted] Selector [data-testid='media-select'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:44:07.141Z [vinted] Selector input[type='file'][multiple] encontró 1 nodos.
+2026-06-15T17:44:07.250Z [vinted] setInputFiles correcto con selector input[type='file'][multiple] índice 0.
+2026-06-15T17:44:08.762Z [status] Rellenando título en Vinted...
+2026-06-15T17:44:09.674Z [status] Rellenando descripción en Vinted...
+2026-06-15T17:44:10.587Z [status] Seleccionando categoría en Vinted...
+2026-06-15T17:44:14.117Z [status] Seleccionando plataforma en Vinted...
+2026-06-15T17:44:46.901Z [status] He dejado Vinted abierto para que revises el punto exacto del fallo.
+2026-06-15T17:46:09.245Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T17:46:09.247Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T17:46:57.835Z [status] Abriendo Vinted para subir el artículo...
+2026-06-15T17:47:00.838Z [status] Subiendo fotos en Vinted...
+2026-06-15T17:47:00.839Z [vinted] Iniciando subida de fotos.
+2026-06-15T17:47:02.122Z [vinted] Selector .media-select__input-content input[type='file'] encontró 0 nodos.
+2026-06-15T17:47:02.136Z [vinted] Selector .media-select input[type='file'] encontró 0 nodos.
+2026-06-15T17:47:02.152Z [vinted] Selector [data-testid='dropzone'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:47:02.165Z [vinted] Selector [data-testid='media-upload-grid'] ~ .media-select__input input[type='file'] encontró 0 nodos.
+2026-06-15T17:47:02.182Z [vinted] Selector [data-testid='media-select'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:47:02.198Z [vinted] Selector input[type='file'][multiple] encontró 1 nodos.
+2026-06-15T17:47:02.306Z [vinted] setInputFiles correcto con selector input[type='file'][multiple] índice 0.
+2026-06-15T17:47:03.809Z [status] Rellenando título en Vinted...
+2026-06-15T17:47:04.727Z [status] Rellenando descripción en Vinted...
+2026-06-15T17:47:05.968Z [status] Seleccionando categoría en Vinted...
+2026-06-15T17:47:09.587Z [status] Seleccionando plataforma en Vinted...
+2026-06-15T17:47:09.588Z [vinted] Intentando seleccionar plataforma: "Super Nintendo".
+2026-06-15T17:47:42.481Z [vinted] Opciones visibles tras buscar plataforma: []
+2026-06-15T17:47:42.497Z [vinted] Click directo sobre fila de plataforma: no encontrada.
+2026-06-15T17:47:43.298Z [vinted] Valor del input de plataforma tras ArrowDown+Enter: "".
+2026-06-15T17:47:43.314Z [vinted] Fallo final al seleccionar plataforma. Valor actual del input: "".
+2026-06-15T17:47:43.314Z [status] He dejado Vinted abierto para que revises el punto exacto del fallo.
+2026-06-15T17:48:21.188Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T17:48:21.189Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T17:48:42.918Z [status] Abriendo Vinted para subir el artículo...
+2026-06-15T17:48:47.097Z [status] Subiendo fotos en Vinted...
+2026-06-15T17:48:47.098Z [vinted] Iniciando subida de fotos.
+2026-06-15T17:48:48.384Z [vinted] Selector .media-select__input-content input[type='file'] encontró 0 nodos.
+2026-06-15T17:48:48.399Z [vinted] Selector .media-select input[type='file'] encontró 0 nodos.
+2026-06-15T17:48:48.405Z [vinted] Selector [data-testid='dropzone'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:48:48.410Z [vinted] Selector [data-testid='media-upload-grid'] ~ .media-select__input input[type='file'] encontró 0 nodos.
+2026-06-15T17:48:48.414Z [vinted] Selector [data-testid='media-select'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:48:48.429Z [vinted] Selector input[type='file'][multiple] encontró 1 nodos.
+2026-06-15T17:48:48.553Z [vinted] setInputFiles correcto con selector input[type='file'][multiple] índice 0.
+2026-06-15T17:48:50.066Z [status] Rellenando título en Vinted...
+2026-06-15T17:48:50.992Z [status] Rellenando descripción en Vinted...
+2026-06-15T17:48:52.435Z [status] Seleccionando categoría en Vinted...
+2026-06-15T17:48:56.039Z [status] Seleccionando plataforma en Vinted...
+2026-06-15T17:48:56.040Z [vinted] Intentando seleccionar plataforma: "Super Nintendo".
+2026-06-15T17:48:56.040Z [vinted] Localizado input principal de plataforma.
+2026-06-15T17:48:56.055Z [vinted] El input principal de plataforma es visible; abriendo dropdown.
+2026-06-15T17:48:56.655Z [vinted] Esperando al dropdown de plataforma.
+2026-06-15T17:48:56.686Z [vinted] Dropdown de plataforma visible: true.
+2026-06-15T17:48:56.702Z [vinted] Input de búsqueda de plataforma visible: true.
+2026-06-15T17:49:28.831Z [vinted] Texto escrito en búsqueda de plataforma.
+2026-06-15T17:49:28.862Z [vinted] Opciones visibles tras buscar plataforma: []
+2026-06-15T17:49:28.877Z [vinted] Click directo sobre fila de plataforma: no encontrada.
+2026-06-15T17:49:29.681Z [vinted] Valor del input de plataforma tras ArrowDown+Enter: "".
+2026-06-15T17:49:29.696Z [vinted] Fallo final al seleccionar plataforma. Valor actual del input: "".
+2026-06-15T17:49:29.696Z [status] He dejado Vinted abierto para que revises el punto exacto del fallo.
+2026-06-15T17:53:27.900Z [renderer:3] Uncaught ReferenceError: exports is not defined
+2026-06-15T17:53:27.902Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T17:53:27.902Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T17:54:53.562Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T17:54:53.562Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T17:55:17.637Z [status] Abriendo Vinted para subir el artículo...
+2026-06-15T17:55:20.686Z [status] Subiendo fotos en Vinted...
+2026-06-15T17:55:20.687Z [vinted] Iniciando subida de fotos.
+2026-06-15T17:55:21.972Z [vinted] Selector .media-select__input-content input[type='file'] encontró 0 nodos.
+2026-06-15T17:55:21.988Z [vinted] Selector .media-select input[type='file'] encontró 0 nodos.
+2026-06-15T17:55:21.994Z [vinted] Selector [data-testid='dropzone'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:55:22.001Z [vinted] Selector [data-testid='media-upload-grid'] ~ .media-select__input input[type='file'] encontró 0 nodos.
+2026-06-15T17:55:22.019Z [vinted] Selector [data-testid='media-select'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:55:22.034Z [vinted] Selector input[type='file'][multiple] encontró 1 nodos.
+2026-06-15T17:55:22.112Z [vinted] setInputFiles correcto con selector input[type='file'][multiple] índice 0.
+2026-06-15T17:55:23.614Z [status] Rellenando título en Vinted...
+2026-06-15T17:55:24.435Z [status] Rellenando descripción en Vinted...
+2026-06-15T17:55:25.396Z [status] Seleccionando categoría en Vinted...
+2026-06-15T17:55:28.971Z [status] Seleccionando plataforma en Vinted...
+2026-06-15T17:55:28.972Z [vinted] Intentando seleccionar plataforma: id=1273, label="Nintendo Switch".
+2026-06-15T17:55:28.973Z [vinted] Localizado input principal de plataforma.
+2026-06-15T17:55:28.984Z [vinted] El input principal de plataforma es visible; abriendo dropdown.
+2026-06-15T17:55:29.621Z [vinted] Esperando al dropdown de plataforma.
+2026-06-15T17:55:29.649Z [vinted] Dropdown de plataforma visible: true.
+2026-06-15T17:55:29.668Z [vinted] Input de búsqueda de plataforma visible: true.
+2026-06-15T17:56:01.859Z [vinted] Texto escrito en búsqueda de plataforma.
+2026-06-15T17:56:01.874Z [vinted] Opciones visibles tras buscar plataforma: []
+2026-06-15T17:56:01.890Z [vinted] Click directo sobre fila de plataforma: no encontrada.
+2026-06-15T17:56:02.706Z [vinted] Valor del input de plataforma tras ArrowDown+Enter: "".
+2026-06-15T17:56:02.722Z [vinted] Fallo final al seleccionar plataforma. Valor actual del input: "".
+2026-06-15T17:56:02.722Z [status] He dejado Vinted abierto para que revises el punto exacto del fallo.
+2026-06-15T17:56:42.287Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T17:56:42.287Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T17:57:11.410Z [status] Abriendo Vinted para subir el artículo...
+2026-06-15T17:57:12.553Z [status] Subiendo fotos en Vinted...
+2026-06-15T17:57:12.554Z [vinted] Iniciando subida de fotos.
+2026-06-15T17:57:14.905Z [vinted] Selector .media-select__input-content input[type='file'] encontró 0 nodos.
+2026-06-15T17:57:14.920Z [vinted] Selector .media-select input[type='file'] encontró 0 nodos.
+2026-06-15T17:57:14.936Z [vinted] Selector [data-testid='dropzone'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:57:14.951Z [vinted] Selector [data-testid='media-upload-grid'] ~ .media-select__input input[type='file'] encontró 0 nodos.
+2026-06-15T17:57:14.966Z [vinted] Selector [data-testid='media-select'] input[type='file'] encontró 0 nodos.
+2026-06-15T17:57:14.982Z [vinted] Selector input[type='file'][multiple] encontró 1 nodos.
+2026-06-15T17:57:15.106Z [vinted] setInputFiles correcto con selector input[type='file'][multiple] índice 0.
+2026-06-15T17:57:16.622Z [status] Rellenando título en Vinted...
+2026-06-15T17:57:17.412Z [status] Rellenando descripción en Vinted...
+2026-06-15T17:57:18.573Z [status] Seleccionando categoría en Vinted...
+2026-06-15T17:57:22.140Z [status] Seleccionando plataforma en Vinted...
+2026-06-15T17:57:22.141Z [vinted] Intentando seleccionar plataforma: id=1287, label="Super Nintendo".
+2026-06-15T17:57:22.141Z [vinted] Localizado input principal de plataforma.
+2026-06-15T17:57:22.155Z [vinted] El input principal de plataforma es visible; abriendo dropdown.
+2026-06-15T17:57:22.743Z [vinted] Esperando al dropdown de plataforma.
+2026-06-15T17:57:22.774Z [vinted] Dropdown de plataforma visible: true.
+2026-06-15T17:57:22.994Z [vinted] Intento 1: click sobre fila de plataforma ok.
+2026-06-15T17:57:23.517Z [vinted] Valor del input de plataforma tras click en fila: "Super Nintendo".
+2026-06-15T17:57:23.517Z [status] Seleccionando clasificación en Vinted...
+2026-06-15T17:57:24.282Z [status] Seleccionando estado en Vinted...
+2026-06-15T17:57:25.009Z [status] Rellenando precio en Vinted...
+2026-06-15T17:57:25.492Z [status] Formulario de Vinted completado. He dejado la ventana abierta para revisión manual.
+2026-06-15T17:57:40.148Z [status] Abriendo la pagina de subida de Wallapop...
+2026-06-15T17:57:44.091Z [status] Seleccionando 'Algo que ya no necesito'...
+2026-06-15T17:57:45.790Z [status] Rellenando el resumen inicial...
+2026-06-15T17:57:48.586Z [status] Continuando al formulario completo...
+2026-06-15T17:57:48.786Z [status] Subiendo imagenes...
+2026-06-15T17:57:52.528Z [status] Continuando despues de las fotos...
+2026-06-15T17:57:54.259Z [status] Seleccionando la categoria...
+2026-06-15T17:57:54.337Z [status] He dejado el navegador abierto para que puedas revisar el punto exacto donde fallo.
+2026-06-15T17:58:18.337Z [status] Abriendo la pagina de subida de Wallapop...
+2026-06-15T17:58:22.064Z [status] Seleccionando 'Algo que ya no necesito'...
+2026-06-15T17:58:23.750Z [status] Rellenando el resumen inicial...
+2026-06-15T17:58:26.569Z [status] Continuando al formulario completo...
+2026-06-15T17:58:26.802Z [status] Subiendo imagenes...
+2026-06-15T17:58:30.529Z [status] Continuando despues de las fotos...
+2026-06-15T17:58:32.264Z [status] Seleccionando la categoria...
+2026-06-15T17:58:38.938Z [status] Esperando a que carguen los detalles del producto...
+2026-06-15T17:58:40.189Z [status] Rellenando informacion del producto...
+2026-06-15T17:58:42.806Z [status] Seleccionando el peso del envio...
+2026-06-15T17:58:42.960Z [status] Formulario completado. He dejado el navegador abierto para que revises el anuncio antes de publicarlo.
+2026-06-15T17:58:54.591Z [status] Abriendo la pagina de subida de Wallapop...
+2026-06-15T17:58:58.429Z [status] Seleccionando 'Algo que ya no necesito'...
+2026-06-15T17:59:00.148Z [status] Rellenando el resumen inicial...
+2026-06-15T17:59:02.995Z [status] Continuando al formulario completo...
+2026-06-15T17:59:03.210Z [status] Subiendo imagenes...
+2026-06-15T17:59:05.422Z [status] Continuando despues de las fotos...
+2026-06-15T17:59:07.165Z [status] Seleccionando la categoria...
+2026-06-15T17:59:13.813Z [status] Esperando a que carguen los detalles del producto...
+2026-06-15T17:59:15.066Z [status] Rellenando informacion del producto...
+2026-06-15T17:59:17.854Z [status] Seleccionando el peso del envio...
+2026-06-15T17:59:18.054Z [status] Formulario completado. He dejado el navegador abierto para que revises el anuncio antes de publicarlo.
+2026-06-15T18:10:17.063Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T18:10:17.063Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T18:10:25.835Z [status] Abriendo ERP para iniciar sesion...
+2026-06-15T18:10:26.900Z [status] Inicia sesion manualmente en el ERP y cierra esa ventana cuando termines.
+2026-06-15T18:12:07.598Z [status] Sesion del ERP guardada.
+2026-06-15T18:18:55.505Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T18:18:55.506Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T18:20:41.008Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T18:20:41.009Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T18:21:12.372Z [status] Abriendo Vinted para subir el artículo...
+2026-06-15T18:21:14.354Z [status] Subiendo fotos en Vinted...
+2026-06-15T18:21:14.355Z [vinted] Iniciando subida de fotos.
+2026-06-15T18:21:17.308Z [vinted] Selector .media-select__input-content input[type='file'] encontró 0 nodos.
+2026-06-15T18:21:17.323Z [vinted] Selector .media-select input[type='file'] encontró 0 nodos.
+2026-06-15T18:21:17.338Z [vinted] Selector [data-testid='dropzone'] input[type='file'] encontró 0 nodos.
+2026-06-15T18:21:17.354Z [vinted] Selector [data-testid='media-upload-grid'] ~ .media-select__input input[type='file'] encontró 0 nodos.
+2026-06-15T18:21:17.370Z [vinted] Selector [data-testid='media-select'] input[type='file'] encontró 0 nodos.
+2026-06-15T18:21:17.385Z [vinted] Selector input[type='file'][multiple] encontró 1 nodos.
+2026-06-15T18:21:17.510Z [vinted] setInputFiles correcto con selector input[type='file'][multiple] índice 0.
+2026-06-15T18:21:19.024Z [status] Rellenando título en Vinted...
+2026-06-15T18:21:19.567Z [status] Rellenando descripción en Vinted...
+2026-06-15T18:21:20.494Z [status] Seleccionando categoría en Vinted...
+2026-06-15T18:21:24.014Z [status] Seleccionando plataforma en Vinted...
+2026-06-15T18:21:24.015Z [vinted] Intentando seleccionar plataforma: id=1287, label="Super Nintendo".
+2026-06-15T18:21:24.015Z [vinted] Localizado input principal de plataforma.
+2026-06-15T18:21:24.029Z [vinted] El input principal de plataforma es visible; abriendo dropdown.
+2026-06-15T18:21:24.663Z [vinted] Esperando al dropdown de plataforma.
+2026-06-15T18:21:24.694Z [vinted] Dropdown de plataforma visible: true.
+2026-06-15T18:21:24.908Z [vinted] Intento 1: click sobre fila de plataforma ok.
+2026-06-15T18:21:25.437Z [vinted] Valor del input de plataforma tras click en fila: "Super Nintendo".
+2026-06-15T18:21:25.437Z [status] Seleccionando clasificación en Vinted...
+2026-06-15T18:21:26.136Z [status] Seleccionando estado en Vinted...
+2026-06-15T18:21:26.879Z [status] Rellenando precio en Vinted...
+2026-06-15T18:21:27.436Z [status] Formulario de Vinted completado. He dejado la ventana abierta para revisión manual.
+2026-06-15T20:34:04.178Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T20:34:04.179Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T20:34:43.290Z [status] Abriendo ERP en productos...
+2026-06-15T20:34:44.758Z [status] Entrando en Web/Venta del ERP...
+2026-06-15T20:34:44.913Z [status] Abriendo nuevo producto en ERP...
+2026-06-15T20:34:45.160Z [status] Rellenando datos generales del ERP...
+2026-06-15T20:34:46.647Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-15T20:40:58.468Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T20:40:58.468Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T20:41:43.986Z [status] Abriendo ERP en productos...
+2026-06-15T20:41:45.114Z [status] Entrando en Web/Venta del ERP...
+2026-06-15T20:41:45.284Z [status] Abriendo nuevo producto en ERP...
+2026-06-15T20:41:45.517Z [status] Rellenando datos generales del ERP...
+2026-06-15T20:41:48.493Z [status] Configurando estados del ERP...
+2026-06-15T20:42:49.637Z [status] Rellenando categoria e informacion web del ERP...
+2026-06-15T20:44:11.334Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T20:44:11.336Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T20:45:57.150Z [status] Abriendo ERP en productos...
+2026-06-15T20:45:58.446Z [status] Entrando en Web/Venta del ERP...
+2026-06-15T20:45:58.631Z [status] Abriendo nuevo producto en ERP...
+2026-06-15T20:45:58.756Z [status] Rellenando datos generales del ERP...
+2026-06-15T20:46:01.931Z [status] Configurando estados del ERP...
+2026-06-15T20:46:01.932Z [status] ERP: Estado ERP -> Listo para la venta
+2026-06-15T20:46:01.993Z [status] ERP: Condicion web -> Sin definir
+2026-06-15T20:46:02.226Z [status] ERP: Grado condicion web -> Sin definir
+2026-06-15T20:46:02.444Z [status] ERP: Region web -> NTSC JAP
+2026-06-15T20:46:02.999Z [status] ERP: Publicar web -> Si
+2026-06-15T20:46:03.060Z [status] ERP: Gestion stock Woo -> Si
+2026-06-15T20:46:03.293Z [status] ERP: Estado impuestos -> taxable
+2026-06-15T20:46:03.541Z [status] Rellenando categoria e informacion web del ERP...
+2026-06-15T20:47:48.691Z [status] Abriendo ERP en productos...
+2026-06-15T20:47:49.816Z [status] Entrando en Web/Venta del ERP...
+2026-06-15T20:47:50.015Z [status] Abriendo nuevo producto en ERP...
+2026-06-15T20:47:50.247Z [status] Rellenando datos generales del ERP...
+2026-06-15T20:48:01.975Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T20:48:01.976Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T20:52:37.826Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T20:52:37.827Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T20:53:25.884Z [status] Abriendo ERP en productos...
+2026-06-15T20:53:27.196Z [status] Entrando en Web/Venta del ERP...
+2026-06-15T20:53:27.396Z [status] Abriendo nuevo producto en ERP...
+2026-06-15T20:53:27.611Z [status] Rellenando datos generales del ERP...
+2026-06-15T20:53:31.232Z [status] Configurando estados del ERP...
+2026-06-15T20:53:31.233Z [status] ERP: Estado ERP -> Listo para la venta
+2026-06-15T20:53:31.309Z [status] ERP: Condicion web -> Sin definir
+2026-06-15T20:53:31.558Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-15T22:29:08.705Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T22:29:08.706Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T22:30:49.521Z [status] Abriendo ERP en productos...
+2026-06-15T22:30:51.185Z [status] Entrando en Web/Venta del ERP...
+2026-06-15T22:30:51.370Z [status] Abriendo nuevo producto en ERP...
+2026-06-15T22:30:51.585Z [status] Rellenando datos generales del ERP...
+2026-06-15T22:30:55.319Z [status] Configurando estados del ERP...
+2026-06-15T22:30:55.320Z [status] ERP: Estado ERP -> Listo para la venta
+2026-06-15T22:30:55.395Z [status] ERP: Condicion web -> Completo
+2026-06-15T22:30:55.889Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-15T22:30:56.381Z [status] ERP: Region web -> NTSC JAP
+2026-06-15T22:30:56.582Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-15T22:32:32.438Z [status] Abriendo ERP en productos...
+2026-06-15T22:32:33.658Z [status] Entrando en Web/Venta del ERP...
+2026-06-15T22:32:33.844Z [status] Abriendo nuevo producto en ERP...
+2026-06-15T22:32:33.968Z [status] Rellenando datos generales del ERP...
+2026-06-15T22:32:37.633Z [status] Configurando estados del ERP...
+2026-06-15T22:32:37.634Z [status] ERP: Estado ERP -> Listo para la venta
+2026-06-15T22:32:37.695Z [status] ERP: Condicion web -> Completo
+2026-06-15T22:32:38.160Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-15T22:32:38.625Z [status] ERP: Region web -> NTSC JAP
+2026-06-15T22:32:38.858Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-15T22:33:18.707Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T22:33:18.708Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T22:34:15.868Z [status] Abriendo ERP en productos...
+2026-06-15T22:34:17.147Z [status] Entrando en Web/Venta del ERP...
+2026-06-15T22:34:17.315Z [status] Abriendo nuevo producto en ERP...
+2026-06-15T22:34:17.408Z [status] Rellenando datos generales del ERP...
+2026-06-15T22:34:21.280Z [status] Configurando estados del ERP...
+2026-06-15T22:34:21.281Z [status] ERP: Estado ERP -> Listo para la venta
+2026-06-15T22:34:21.357Z [status] ERP: Condicion web -> Completo
+2026-06-15T22:34:21.805Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-15T22:34:22.255Z [status] ERP: Region web -> NTSC/JP
+2026-06-15T22:34:22.658Z [status] ERP: Publicar web -> Si
+2026-06-15T22:34:22.734Z [status] ERP: Gestion stock Woo -> Si
+2026-06-15T22:34:23.216Z [status] ERP: Estado impuestos -> taxable
+2026-06-15T22:34:23.699Z [status] Rellenando categoria e informacion web del ERP...
+2026-06-15T22:34:23.948Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-15T23:28:32.056Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T23:28:32.057Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T23:29:06.844Z [status] Abriendo ERP en productos...
+2026-06-15T23:29:08.330Z [status] Entrando en Web/Venta del ERP...
+2026-06-15T23:29:08.511Z [status] Abriendo nuevo producto en ERP...
+2026-06-15T23:29:08.749Z [status] Rellenando datos generales del ERP...
+2026-06-15T23:29:12.382Z [status] Configurando estados del ERP...
+2026-06-15T23:29:12.383Z [status] ERP: Estado ERP -> Listo para la venta
+2026-06-15T23:29:12.431Z [status] ERP: Condicion web -> Completo
+2026-06-15T23:29:12.908Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-15T23:29:13.356Z [status] ERP: Region web -> NTSC/JP
+2026-06-15T23:29:13.820Z [status] ERP: Publicar web -> Si
+2026-06-15T23:29:13.895Z [status] ERP: Gestion stock Woo -> Si
+2026-06-15T23:29:14.310Z [status] ERP: Estado impuestos -> taxable
+2026-06-15T23:29:14.744Z [status] Rellenando categoria e informacion web del ERP...
+2026-06-15T23:29:14.744Z [status] ERP: Categoria principal
+2026-06-15T23:35:08.302Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-15T23:35:08.302Z [diagnostics] {"href":"file:///C:/laragon/www/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-15T23:35:36.600Z [status] Abriendo ERP en productos...
+2026-06-15T23:35:37.942Z [status] Entrando en Web/Venta del ERP...
+2026-06-15T23:35:38.064Z [status] Abriendo nuevo producto en ERP...
+2026-06-15T23:35:38.204Z [status] Rellenando datos generales del ERP...
+2026-06-15T23:35:41.818Z [status] Configurando estados del ERP...
+2026-06-15T23:35:41.819Z [status] ERP: Estado ERP -> Listo para la venta
+2026-06-15T23:35:41.879Z [status] ERP: Condicion web -> Completo
+2026-06-15T23:35:42.325Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-15T23:35:42.802Z [status] ERP: Region web -> PAL/EU
+2026-06-15T23:35:43.272Z [status] ERP: Publicar web -> Si
+2026-06-15T23:35:43.342Z [status] ERP: Gestion stock Woo -> Si
+2026-06-15T23:35:43.804Z [status] ERP: Estado impuestos -> taxable
+2026-06-15T23:35:44.267Z [status] Rellenando categoria e informacion web del ERP...
+2026-06-15T23:35:44.268Z [status] ERP: Categoria principal
+2026-06-15T23:35:44.391Z [status] ERP: Marcando categorias

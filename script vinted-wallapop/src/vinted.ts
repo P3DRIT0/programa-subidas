@@ -2,12 +2,13 @@ import fs from "node:fs";
 import path from "node:path";
 import { app } from "electron";
 import { chromium, Locator, Page } from "playwright";
-import { WallapopFormData } from "./shared";
+import { vintedPlatformLabels, WallapopFormData } from "./shared";
 
 const VINTED_NEW_ITEM_URL = "https://www.vinted.es/items/new";
 
 type StatusCallback = (message: string) => void;
 let activeVintedLoginContext: Awaited<ReturnType<typeof chromium.launchPersistentContext>> | null = null;
+type VintedContext = Awaited<ReturnType<typeof chromium.launchPersistentContext>>;
 
 function getProfileDir() {
   return path.join(app.getPath("userData"), "vinted-profile");
@@ -59,6 +60,40 @@ async function launchVintedContext() {
   }
 
   throw lastError;
+}
+
+function registerContextCleanup(
+  context: VintedContext,
+) {
+  context.once("close", () => {
+    if (activeVintedLoginContext === context) {
+      activeVintedLoginContext = null;
+    }
+  });
+}
+
+async function getOrCreateVintedContext(): Promise<VintedContext> {
+  if (activeVintedLoginContext) {
+    return activeVintedLoginContext;
+  }
+
+  const context: VintedContext = await launchVintedContext();
+  activeVintedLoginContext = context;
+  registerContextCleanup(context);
+  return context;
+}
+
+async function getPrimaryPage(
+  context: VintedContext,
+) {
+  const pages = context.pages();
+  const primaryPage = pages[0] ?? (await context.newPage());
+
+  for (const extraPage of pages.slice(1)) {
+    await extraPage.close().catch(() => undefined);
+  }
+
+  return primaryPage;
 }
 
 async function ensurePhotoPaths(photoPaths: string[]) {
@@ -245,6 +280,19 @@ async function chooseOption(page: Page, value: string) {
   return false;
 }
 
+async function clickSingleListOption(page: Page, dropdownTestId: string, platformId: string) {
+  const dropdown = page.locator(`[data-testid='${dropdownTestId}']`).first();
+  const optionRow = dropdown.locator(`[data-testid='video_game_platform-${platformId}']`).first();
+
+  if (await optionRow.isVisible().catch(() => false)) {
+    await optionRow.scrollIntoViewIfNeeded().catch(() => undefined);
+    await optionRow.click({ force: true });
+    return true;
+  }
+
+  return false;
+}
+
 async function selectVintedCategory(page: Page, categoryRoute: WallapopFormData["category"]) {
   const searchMap: Record<WallapopFormData["category"], { search: string; target: string }> = {
     videojuegos: { search: "juegos", target: "Juegos" },
@@ -282,32 +330,58 @@ async function selectVintedCondition(page: Page, condition: string) {
   await chooseOption(page, target);
 }
 
-async function selectVintedPlatform(page: Page, platform: string) {
-  if (!platform.trim()) {
+async function selectVintedPlatform(page: Page, platformId: WallapopFormData["vintedPlatform"]) {
+  if (!platformId) {
     return;
   }
 
-  const opened = await openDropdownByText(page, "Plataforma");
-  if (!opened) {
+  const platformLabel = vintedPlatformLabels[platformId];
+  logVintedDebug(`Intentando seleccionar plataforma: id=${platformId}, label="${platformLabel}".`);
+
+  const platformInput = page.locator("[data-testid='category-video_game_platform-single-list_search-input']").first();
+  logVintedDebug("Localizado input principal de plataforma.");
+  if (await platformInput.isVisible().catch(() => false)) {
+    logVintedDebug("El input principal de plataforma es visible; abriendo dropdown.");
+    await platformInput.click({ force: true }).catch(() => undefined);
+  } else if (!(await openDropdownByText(page, "Plataforma"))) {
     return;
   }
 
   await page.waitForTimeout(500);
-  const searchInput = page.locator("input[placeholder*='plataforma'], input[placeholder*='Buscar'], input[type='search']").first();
-  if (await searchInput.isVisible().catch(() => false)) {
-    await searchInput.click({ force: true }).catch(() => undefined);
-    await searchInput.fill("").catch(() => undefined);
-    await searchInput.type(platform, { delay: 40 }).catch(async () => searchInput.fill(platform));
-    await page.waitForTimeout(900);
+  const platformDropdown = page.locator("[data-testid='category-video_game_platform-single-list_search-content']").first();
+  logVintedDebug("Esperando al dropdown de plataforma.");
+  const dropdownVisible = await platformDropdown.waitFor({ state: "visible", timeout: 10000 }).then(() => true).catch(() => false);
+  logVintedDebug(`Dropdown de plataforma visible: ${dropdownVisible}.`);
+  const scrollContainer = platformDropdown.locator(".u-overflow-auto").first();
+
+  for (let attempt = 0; attempt < 18; attempt += 1) {
+    const selectedFromList = await clickSingleListOption(
+      page,
+      "category-video_game_platform-single-list_search-content",
+      platformId,
+    );
+    logVintedDebug(`Intento ${attempt + 1}: click sobre fila de plataforma ${selectedFromList ? "ok" : "no encontrada"}.`);
+
+    if (selectedFromList) {
+      await page.waitForTimeout(500);
+      const selectedValue = await platformInput.inputValue().catch(() => "");
+      logVintedDebug(`Valor del input de plataforma tras click en fila: "${selectedValue}".`);
+      if (selectedValue.trim().toLowerCase() === platformLabel.trim().toLowerCase()) {
+        return;
+      }
+    }
+
+    await scrollContainer.evaluate((element) => {
+      element.scrollTop += Math.max(240, element.clientHeight * 0.8);
+    }).catch(() => undefined);
+    await page.waitForTimeout(250);
   }
 
-  const firstOption = page.getByRole("option").first();
-  if (await firstOption.isVisible().catch(() => false)) {
-    await firstOption.click({ force: true }).catch(() => undefined);
-    return;
+  const selectedValue = await platformInput.inputValue().catch(() => "");
+  logVintedDebug(`Fallo final al seleccionar plataforma. Valor actual del input: "${selectedValue}".`);
+  if (selectedValue.trim().toLowerCase() !== platformLabel.trim().toLowerCase()) {
+    throw new Error(`Vinted no confirmo la plataforma "${platformLabel}" tras seleccionarla.`);
   }
-
-  await chooseOption(page, platform);
 }
 
 async function selectVintedContentRating(page: Page, rating: string) {
@@ -377,14 +451,13 @@ async function completeVintedFlow(page: Page, data: WallapopFormData, status: St
 export async function openVintedLogin(status: StatusCallback) {
   emitStatus(status, "Abriendo Vinted para iniciar sesión...");
   if (activeVintedLoginContext) {
-    const existingPage = activeVintedLoginContext.pages()[0] ?? (await activeVintedLoginContext.newPage());
+    const existingPage = await getPrimaryPage(activeVintedLoginContext);
     await existingPage.bringToFront().catch(() => undefined);
     return { ok: true, message: "La ventana de Vinted ya estaba abierta." };
   }
 
-  const context = await launchVintedContext();
-  activeVintedLoginContext = context;
-  const page = context.pages()[0] ?? (await context.newPage());
+  const context = await getOrCreateVintedContext();
+  const page = await getPrimaryPage(context);
   await page.goto(VINTED_NEW_ITEM_URL, { waitUntil: "domcontentloaded" });
   await page.bringToFront().catch(() => undefined);
   emitStatus(status, "Inicia sesión manualmente en Vinted y cierra esa ventana cuando termines.");
@@ -400,13 +473,9 @@ export async function openVintedLogin(status: StatusCallback) {
 export async function publishToVinted(data: WallapopFormData, status: StatusCallback) {
   await ensurePhotoPaths(data.photoPaths);
 
-  if (activeVintedLoginContext) {
-    await activeVintedLoginContext.close().catch(() => undefined);
-    activeVintedLoginContext = null;
-  }
-
-  const context = await launchVintedContext();
-  const page = context.pages()[0] ?? (await context.newPage());
+  const context = await getOrCreateVintedContext();
+  const page = await getPrimaryPage(context);
+  await page.bringToFront().catch(() => undefined);
 
   try {
     await completeVintedFlow(page, data, status);

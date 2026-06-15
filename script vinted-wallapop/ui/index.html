@@ -23,6 +23,9 @@
           <button id="open-vinted-login" type="button" class="secondary-button">
             Login Vinted
           </button>
+          <button id="open-erp-login" type="button" class="secondary-button">
+            Login ERP
+          </button>
         </div>
       </section>
 
@@ -56,7 +59,55 @@
 
           <label>
             Plataforma Vinted
-            <input name="vintedPlatform" type="text" placeholder="Ej. Super Famicom, PS5, Switch" />
+            <select name="vintedPlatform">
+              <option value="">Selecciona una plataforma</option>
+              <option value="8575">Acer Nitro Blaze 11</option>
+              <option value="8573">Acer Nitro Blaze 7</option>
+              <option value="8574">Acer Nitro Blaze 8</option>
+              <option value="1259">Asus ROG Ally</option>
+              <option value="8576">Asus ROG Ally X</option>
+              <option value="8577">Asus ROG Xbox Ally</option>
+              <option value="1260">Atari</option>
+              <option value="1261">Ayaneo</option>
+              <option value="1262">Commodore</option>
+              <option value="1263">Lenovo Legion Go</option>
+              <option value="8579">MSI Claw 7 AI+</option>
+              <option value="8580">MSI Claw 8 AI+</option>
+              <option value="8578">MSI Claw A1M</option>
+              <option value="8581">MSI Claw A8</option>
+              <option value="1264">Nintendo 2DS</option>
+              <option value="1265">Nintendo 3DS</option>
+              <option value="1266">Nintendo 64</option>
+              <option value="1267">Nintendo DS</option>
+              <option value="1268">Nintendo Entertainment System</option>
+              <option value="1269">Nintendo Game Boy</option>
+              <option value="1270">Nintendo Game Boy Advance</option>
+              <option value="1272">Nintendo GameCube</option>
+              <option value="1273">Nintendo Switch</option>
+              <option value="6478">Nintendo Switch 2</option>
+              <option value="1274">Nintendo Wii</option>
+              <option value="1275">Nintendo Wii U</option>
+              <option value="1276">PC y Mac</option>
+              <option value="1277">PlayStation 1</option>
+              <option value="1278">PlayStation 2</option>
+              <option value="1279">PlayStation 3</option>
+              <option value="1280">PlayStation 4</option>
+              <option value="1281">PlayStation 5</option>
+              <option value="8582">PlayStation 5 Pro</option>
+              <option value="1282">PlayStation Portable</option>
+              <option value="8583">PlayStation Portal</option>
+              <option value="1283">PlayStation Vita</option>
+              <option value="1284">Sega Dreamcast</option>
+              <option value="1285">Sega Mega Drive</option>
+              <option value="1286">Steam Deck</option>
+              <option value="1287">Super Nintendo</option>
+              <option value="1288">Xbox (original)</option>
+              <option value="1289">Xbox 360</option>
+              <option value="8584">Xbox Ally X</option>
+              <option value="1290">Xbox One</option>
+              <option value="1291">Xbox Series S y X</option>
+              <option value="8585">Zotac Gaming Zone</option>
+            </select>
           </label>
 
           <label>
@@ -94,6 +145,42 @@
           <label>
             Precio
             <input name="price" type="text" inputmode="decimal" placeholder="59.95" required />
+          </label>
+
+          <label>
+            Cantidad en stock
+            <input name="stockQuantity" type="text" inputmode="numeric" placeholder="1" required />
+          </label>
+
+          <label>
+            Region web ERP
+            <select name="erpRegion">
+              <option value="Sin definir">Sin definir</option>
+              <option value="NTSC/JP">NTSC/JP</option>
+              <option value="NTSC/USA">NTSC/USA</option>
+              <option value="PAL/AUS">PAL/AUS</option>
+              <option value="PAL/CH">PAL/CH</option>
+              <option value="PAL/DE">PAL/DE</option>
+              <option value="PAL/ES">PAL/ES</option>
+              <option value="PAL/EU">PAL/EU</option>
+              <option value="PAL/FR">PAL/FR</option>
+              <option value="PAL/IT">PAL/IT</option>
+              <option value="PAL/NL">PAL/NL</option>
+              <option value="PAL/PT">PAL/PT</option>
+              <option value="PAL/UK">PAL/UK</option>
+            </select>
+          </label>
+
+          <label>
+            Condicion web ERP
+            <select name="erpWebCondition">
+              <option value="Sin definir">Sin definir</option>
+              <option value="Completo">Completo</option>
+              <option value="Incompleto">Incompleto</option>
+              <option value="Sellado">Sellado</option>
+              <option value="Solo juego">Solo juego</option>
+              <option value="Nuevo">Nuevo</option>
+            </select>
           </label>
 
           <label class="full-width">
@@ -137,7 +224,8 @@
           <div class="full-width action-row">
             <button id="run-wallapop" type="submit" class="primary-button">Ejecutar Wallapop</button>
             <button id="run-vinted" type="button" class="secondary-button">Ejecutar Vinted</button>
-            <button id="run-both" type="button" class="secondary-button">Ejecutar ambos</button>
+            <button id="run-erp" type="button" class="secondary-button">Ejecutar ERP</button>
+            <button id="run-both" type="button" class="secondary-button">Ejecutar todo</button>
           </div>
         </form>
       </section>

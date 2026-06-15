@@ -72,6 +72,40 @@ async function launchWallapopContext() {
   throw lastError;
 }
 
+function registerContextCleanup(
+  context: Awaited<ReturnType<typeof chromium.launchPersistentContext>>,
+) {
+  context.once("close", () => {
+    if (activeLoginContext === context) {
+      activeLoginContext = null;
+    }
+  });
+}
+
+async function getOrCreateWallapopContext() {
+  if (activeLoginContext) {
+    return activeLoginContext;
+  }
+
+  const context = await launchWallapopContext();
+  activeLoginContext = context;
+  registerContextCleanup(context);
+  return context;
+}
+
+async function getPrimaryPage(
+  context: Awaited<ReturnType<typeof chromium.launchPersistentContext>>,
+) {
+  const pages = context.pages();
+  const primaryPage = pages[0] ?? (await context.newPage());
+
+  for (const extraPage of pages.slice(1)) {
+    await extraPage.close().catch(() => undefined);
+  }
+
+  return primaryPage;
+}
+
 async function ensurePhotoPaths(photoPaths: string[]) {
   for (const photoPath of photoPaths) {
     await fs.promises.access(photoPath, fs.constants.R_OK);
@@ -738,7 +772,7 @@ async function completePublishFlow(page: Page, data: WallapopFormData, status: S
 export async function openWallapopLogin(status: StatusCallback) {
   emitStatus(status, "Abriendo Wallapop para iniciar sesion...");
   if (activeLoginContext) {
-    const existingPage = activeLoginContext.pages()[0] ?? (await activeLoginContext.newPage());
+    const existingPage = await getPrimaryPage(activeLoginContext);
     await existingPage.bringToFront().catch(() => undefined);
     emitStatus(
       status,
@@ -747,33 +781,22 @@ export async function openWallapopLogin(status: StatusCallback) {
     return { ok: true, message: "La ventana de Wallapop ya estaba abierta." };
   }
 
-  const context = await launchWallapopContext();
-  activeLoginContext = context;
-  const page = context.pages()[0] ?? (await context.newPage());
+  const context = await getOrCreateWallapopContext();
+  const page = await getPrimaryPage(context);
   await page.goto(WALLAPOP_UPLOAD_URL, { waitUntil: "domcontentloaded" });
   await page.bringToFront().catch(() => undefined);
   emitStatus(
     status,
     "Inicia sesion manualmente en el navegador. Cuando cierres esa ventana, la sesion quedara guardada.",
   );
-
-  context.once("close", () => {
-    activeLoginContext = null;
-    emitStatus(status, "Sesion de Wallapop guardada.");
-  });
-
   return { ok: true, message: "Ventana de login abierta. Completa el acceso en el navegador." };
 }
 
 export async function publishToWallapop(data: WallapopFormData, status: StatusCallback) {
   await ensurePhotoPaths(data.photoPaths);
-  if (activeLoginContext) {
-    emitStatus(status, "Cerrando la ventana de login anterior para reutilizar la sesion guardada...");
-    await activeLoginContext.close().catch(() => undefined);
-    activeLoginContext = null;
-  }
-  const context = await launchWallapopContext();
-  const page = context.pages()[0] ?? (await context.newPage());
+  const context = await getOrCreateWallapopContext();
+  const page = await getPrimaryPage(context);
+  await page.bringToFront().catch(() => undefined);
 
   try {
     await completePublishFlow(page, data, status);

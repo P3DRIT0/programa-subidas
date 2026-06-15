@@ -4,6 +4,7 @@ import { app, BrowserWindow, dialog, ipcMain } from "electron";
 import { wallapopFormSchema } from "./shared";
 import { openWallapopLogin, publishToWallapop } from "./wallapop";
 import { openVintedLogin, publishToVinted } from "./vinted";
+import { openErpLogin, publishToErp } from "./erp";
 
 let mainWindow: BrowserWindow | null = null;
 const debugLogPath = path.join(process.cwd(), "debug.log");
@@ -101,6 +102,10 @@ ipcMain.handle("vinted:open-login", async () => {
   return openVintedLogin(sendStatus);
 });
 
+ipcMain.handle("erp:open-login", async () => {
+  return openErpLogin(sendStatus);
+});
+
 ipcMain.handle("wallapop:publish", async (_event, rawData) => {
   const parsed = wallapopFormSchema.safeParse(rawData);
   if (!parsed.success) {
@@ -123,4 +128,16 @@ ipcMain.handle("vinted:publish", async (_event, rawData) => {
   }
 
   return publishToVinted(parsed.data, sendStatus);
+});
+
+ipcMain.handle("erp:publish", async (_event, rawData) => {
+  const parsed = wallapopFormSchema.safeParse(rawData);
+  if (!parsed.success) {
+    return {
+      ok: false,
+      message: parsed.error.issues[0]?.message ?? "Datos invalidos.",
+    };
+  }
+
+  return publishToErp(parsed.data, sendStatus);
 });
