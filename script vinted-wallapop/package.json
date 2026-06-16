@@ -7,7 +7,8 @@
     "build": "rimraf dist && tsc",
     "start": "npm run build && set ELECTRON_RUN_AS_NODE=&& electron .",
     "dev": "npm run build && set ELECTRON_RUN_AS_NODE=&& electron .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "dist": "npm run build && electron-builder --win nsis"
   },
   "keywords": [
     "electron",
@@ -24,7 +25,43 @@
   "devDependencies": {
     "@types/node": "20.12.12",
     "electron": "28.3.3",
+    "electron-builder": "24.13.3",
     "rimraf": "5.0.5",
     "typescript": "5.4.5"
+  },
+  "build": {
+    "appId": "com.retrobay.scriptvintedwallapop",
+    "productName": "Publicador Wallapop",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "ui/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "node_modules/playwright",
+        "to": "playwright"
+      }
+    ],
+    "win": {
+      "icon": "ui/assets/retrobay-app-icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
   }
 }

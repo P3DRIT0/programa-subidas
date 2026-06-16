@@ -9,6 +9,10 @@ import { openErpLogin, publishToErp } from "./erp";
 let mainWindow: BrowserWindow | null = null;
 const debugLogPath = path.join(process.cwd(), "debug.log");
 
+function getUiAssetPath(...segments: string[]) {
+  return path.join(app.getAppPath(), "ui", "assets", ...segments);
+}
+
 function writeDebug(message: string) {
   fs.appendFileSync(debugLogPath, `${new Date().toISOString()} ${message}\n`);
 }
@@ -25,6 +29,7 @@ function createWindow() {
     minWidth: 980,
     minHeight: 780,
     autoHideMenuBar: true,
+    icon: getUiAssetPath("retrobay-app-icon.png"),
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       contextIsolation: true,

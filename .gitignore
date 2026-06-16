@@ -1,0 +1,5 @@
+script vinted-wallapop/release/
+script vinted-wallapop/.tmp-profile-test/
+script vinted-wallapop/debug.log
+script vinted-wallapop/release-builder-debug.yml
+script vinted-wallapop/release/latest.yml
