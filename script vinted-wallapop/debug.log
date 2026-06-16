@@ -1225,3 +1225,376 @@ once the app is packaged.
 2026-06-15T23:35:44.267Z [status] Rellenando categoria e informacion web del ERP...
 2026-06-15T23:35:44.268Z [status] ERP: Categoria principal
 2026-06-15T23:35:44.391Z [status] ERP: Marcando categorias
+2026-06-16T06:43:57.279Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T06:43:57.280Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T06:47:05.417Z [status] Abriendo ERP en productos...
+2026-06-16T06:47:07.053Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T06:47:07.117Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-16T06:48:57.915Z [status] Abriendo ERP en productos...
+2026-06-16T06:48:59.538Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T06:48:59.741Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T06:48:59.862Z [status] Rellenando datos generales del ERP...
+2026-06-16T06:49:03.640Z [status] Configurando estados del ERP...
+2026-06-16T06:49:03.640Z [status] ERP: Estado ERP -> Listo para la venta
+2026-06-16T06:49:03.724Z [status] ERP: Condicion web -> Completo
+2026-06-16T06:49:04.212Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-16T06:49:04.723Z [status] ERP: Region web -> NTSC/JP
+2026-06-16T06:49:05.104Z [status] ERP: Publicar web -> Si
+2026-06-16T06:49:05.207Z [status] ERP: Gestion stock Woo -> Si
+2026-06-16T06:49:05.652Z [status] ERP: Estado impuestos -> taxable
+2026-06-16T06:49:06.131Z [status] Rellenando categoria e informacion web del ERP...
+2026-06-16T06:49:06.132Z [status] ERP: Categoria principal
+2026-06-16T06:49:06.300Z [status] ERP: Marcando categorias
+2026-06-16T06:51:56.938Z [status] Abriendo ERP en productos...
+2026-06-16T06:51:59.276Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T06:51:59.489Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T06:51:59.585Z [status] Rellenando datos generales del ERP...
+2026-06-16T06:52:03.154Z [status] Configurando estados del ERP...
+2026-06-16T06:52:03.154Z [status] ERP: Estado ERP -> Listo para la venta
+2026-06-16T06:52:03.205Z [status] ERP: Condicion web -> Completo
+2026-06-16T06:52:03.599Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-16T06:52:03.956Z [status] ERP: Region web -> NTSC/JP
+2026-06-16T06:52:04.319Z [status] ERP: Publicar web -> Si
+2026-06-16T06:52:04.381Z [status] ERP: Gestion stock Woo -> Si
+2026-06-16T06:52:04.823Z [status] ERP: Estado impuestos -> taxable
+2026-06-16T06:52:05.227Z [status] Rellenando categoria e informacion web del ERP...
+2026-06-16T06:52:05.228Z [status] ERP: Categoria principal
+2026-06-16T06:52:05.359Z [status] ERP: Marcando categorias
+2026-06-16T07:01:10.542Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:01:10.543Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:03:19.575Z [status] Abriendo Vinted para subir el artículo...
+2026-06-16T07:03:20.729Z [status] Subiendo fotos en Vinted...
+2026-06-16T07:03:20.730Z [vinted] Iniciando subida de fotos.
+2026-06-16T07:03:23.708Z [vinted] Selector .media-select__input-content input[type='file'] encontró 0 nodos.
+2026-06-16T07:03:23.721Z [vinted] Selector .media-select input[type='file'] encontró 0 nodos.
+2026-06-16T07:03:23.739Z [vinted] Selector [data-testid='dropzone'] input[type='file'] encontró 0 nodos.
+2026-06-16T07:03:23.816Z [vinted] Selector [data-testid='media-upload-grid'] ~ .media-select__input input[type='file'] encontró 0 nodos.
+2026-06-16T07:03:23.875Z [vinted] Selector [data-testid='media-select'] input[type='file'] encontró 0 nodos.
+2026-06-16T07:03:23.881Z [vinted] Selector input[type='file'][multiple] encontró 1 nodos.
+2026-06-16T07:03:23.983Z [vinted] setInputFiles correcto con selector input[type='file'][multiple] índice 0.
+2026-06-16T07:03:24.504Z [status] He dejado Vinted abierto para que revises el punto exacto del fallo.
+2026-06-16T07:03:26.172Z [status] Abriendo ERP en productos...
+2026-06-16T07:03:27.763Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:03:27.973Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:03:28.113Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:03:31.662Z [status] Configurando estados del ERP...
+2026-06-16T07:03:31.663Z [status] ERP: Estado ERP -> Listo para la venta
+2026-06-16T07:03:31.770Z [status] ERP: Condicion web -> Incompleto
+2026-06-16T07:03:32.235Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-16T07:03:32.641Z [status] ERP: Region web -> NTSC/JP
+2026-06-16T07:03:33.023Z [status] ERP: Publicar web -> Si
+2026-06-16T07:03:33.084Z [status] ERP: Gestion stock Woo -> Si
+2026-06-16T07:03:33.503Z [status] ERP: Estado impuestos -> taxable
+2026-06-16T07:03:33.898Z [status] Rellenando categoria e informacion web del ERP...
+2026-06-16T07:03:33.899Z [status] ERP: Categoria principal
+2026-06-16T07:03:34.012Z [status] ERP: Marcando categorias
+2026-06-16T07:10:05.107Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:10:05.108Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:10:48.491Z [status] Abriendo ERP en productos...
+2026-06-16T07:10:50.039Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:10:50.256Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:10:50.459Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:10:54.128Z [status] Configurando estados del ERP...
+2026-06-16T07:10:54.129Z [status] ERP: Estado ERP -> Listo para la venta
+2026-06-16T07:10:55.360Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-16T07:11:48.754Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:11:48.756Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:12:29.945Z [status] Abriendo ERP en productos...
+2026-06-16T07:12:31.380Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:12:31.600Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:12:31.852Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:12:35.429Z [status] Configurando estados del ERP...
+2026-06-16T07:12:35.430Z [status] ERP: Estado ERP -> Listo para la venta
+2026-06-16T07:12:36.693Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-16T07:13:30.833Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:13:30.834Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:14:12.740Z [status] Abriendo ERP en productos...
+2026-06-16T07:14:14.338Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:14:14.600Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:14:14.914Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:14:18.395Z [status] Configurando estados del ERP...
+2026-06-16T07:14:18.396Z [status] ERP: Estado ERP -> Listo para venta
+2026-06-16T07:14:19.652Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-16T07:15:12.682Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:15:12.683Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:15:54.787Z [status] Abriendo ERP en productos...
+2026-06-16T07:15:56.247Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:15:56.460Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:15:56.584Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:16:00.288Z [status] Configurando estados del ERP...
+2026-06-16T07:16:00.289Z [status] ERP: Estado ERP -> Listo para venta
+2026-06-16T07:16:00.355Z [status] ERP: Condicion web -> Completo
+2026-06-16T07:16:00.787Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-16T07:16:01.237Z [status] ERP: Region web -> NTSC/JP
+2026-06-16T07:16:01.671Z [status] ERP: Publicar web -> Si
+2026-06-16T07:16:07.972Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-16T07:17:30.597Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:17:30.599Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:18:19.567Z [status] Abriendo ERP en productos...
+2026-06-16T07:18:20.904Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:18:21.121Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:18:21.279Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:18:24.941Z [status] Configurando estados del ERP...
+2026-06-16T07:18:24.942Z [status] ERP: Estado ERP -> Listo para venta
+2026-06-16T07:18:25.055Z [status] ERP: Condicion web -> Incompleto
+2026-06-16T07:18:25.473Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-16T07:18:25.876Z [status] ERP: Region web -> NTSC/JP
+2026-06-16T07:18:26.331Z [status] ERP: Publicar web -> Si
+2026-06-16T07:18:33.371Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-16T07:19:21.045Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:19:21.046Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:20:11.806Z [status] Abriendo ERP en productos...
+2026-06-16T07:20:12.938Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:20:13.168Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:20:13.371Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:20:16.858Z [status] Configurando estados del ERP...
+2026-06-16T07:20:16.859Z [status] ERP: Estado ERP -> Listo para venta
+2026-06-16T07:20:17.064Z [status] ERP: Condicion web -> Incompleto
+2026-06-16T07:20:17.622Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-16T07:20:18.080Z [status] ERP: Region web -> NTSC/JP
+2026-06-16T07:20:18.647Z [status] ERP: Publicar web -> Si
+2026-06-16T07:20:26.729Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-16T07:22:36.396Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:22:36.398Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:23:11.979Z [status] Abriendo ERP en productos...
+2026-06-16T07:23:13.534Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:23:13.767Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:23:14.063Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:23:17.451Z [status] Configurando estados del ERP...
+2026-06-16T07:23:17.451Z [status] ERP: Estado ERP -> Listo para venta
+2026-06-16T07:23:17.696Z [status] ERP: Condicion web -> Incompleto
+2026-06-16T07:23:17.838Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-16T07:24:31.062Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:24:31.063Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:24:58.020Z [status] Abriendo ERP en productos...
+2026-06-16T07:24:59.813Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:25:00.078Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:25:00.281Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:25:03.773Z [status] Configurando estados del ERP...
+2026-06-16T07:25:03.774Z [status] ERP: Estado ERP -> Listo para venta
+2026-06-16T07:25:04.069Z [status] ERP: Condicion web -> Incompleto
+2026-06-16T07:25:04.420Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-16T07:25:04.754Z [status] ERP: Region web -> NTSC/JP
+2026-06-16T07:25:05.170Z [status] ERP: Publicar web -> Si
+2026-06-16T07:25:14.300Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-16T07:27:04.961Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:27:04.962Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:28:07.353Z [status] Abriendo ERP en productos...
+2026-06-16T07:28:08.500Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:28:08.702Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:28:08.951Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:28:12.420Z [status] Configurando estados del ERP...
+2026-06-16T07:28:12.420Z [status] ERP: Estado ERP -> Listo para venta
+2026-06-16T07:28:12.572Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-16T07:29:02.883Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:29:02.884Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:29:56.572Z [status] Abriendo ERP en productos...
+2026-06-16T07:29:57.880Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:29:58.138Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:29:58.363Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:30:01.596Z [status] Configurando estados del ERP...
+2026-06-16T07:30:01.597Z [status] ERP: Estado ERP -> Listo para venta
+2026-06-16T07:30:01.627Z [status] He dejado ERP abierto para que revises el punto exacto del fallo.
+2026-06-16T07:31:45.121Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:31:45.122Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:32:27.959Z [status] Abriendo ERP en productos...
+2026-06-16T07:32:29.336Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:32:29.549Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:32:29.736Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:32:33.317Z [status] Configurando estados del ERP...
+2026-06-16T07:32:33.317Z [status] ERP: Estado ERP -> Listo para venta
+2026-06-16T07:32:33.363Z [status] ERP: Condicion web -> Completo
+2026-06-16T07:32:33.798Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-16T07:32:34.167Z [status] ERP: Region web -> NTSC/JP
+2026-06-16T07:32:34.601Z [status] ERP: Publicar web -> Si
+2026-06-16T07:32:34.646Z [status] ERP: Gestion stock Woo -> Si
+2026-06-16T07:32:34.692Z [status] ERP: Estado impuestos -> taxable
+2026-06-16T07:32:35.125Z [status] Rellenando categoria e informacion web del ERP...
+2026-06-16T07:32:35.126Z [status] ERP: Categoria principal
+2026-06-16T07:32:35.205Z [status] ERP: Marcando categorias
+2026-06-16T07:35:16.759Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:35:16.760Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:36:06.928Z [status] Abriendo ERP en productos...
+2026-06-16T07:36:08.293Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:36:08.468Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:36:08.556Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:36:12.446Z [status] Configurando estados del ERP...
+2026-06-16T07:36:12.447Z [status] ERP: Estado ERP -> Listo para venta
+2026-06-16T07:39:08.064Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:39:08.065Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:39:52.866Z [status] Abriendo ERP en productos...
+2026-06-16T07:39:54.076Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:39:54.341Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:39:54.514Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:39:58.214Z [status] Configurando estados del ERP...
+2026-06-16T07:39:58.215Z [status] ERP: Estado ERP -> Listo para venta
+2026-06-16T07:40:06.309Z [status] ERP: Condicion web -> Completo
+2026-06-16T07:40:06.634Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-16T07:40:07.056Z [status] ERP: Region web -> NTSC/JP
+2026-06-16T07:40:07.456Z [status] ERP: Publicar web -> Si
+2026-06-16T07:40:15.560Z [status] ERP: Gestion stock Woo -> Si
+2026-06-16T07:40:15.635Z [status] ERP: Estado impuestos -> taxable
+2026-06-16T07:40:16.055Z [status] Rellenando categoria e informacion web del ERP...
+2026-06-16T07:40:16.056Z [status] ERP: Categoria principal
+2026-06-16T07:40:16.187Z [status] ERP: Marcando categorias
+2026-06-16T07:42:15.225Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:42:15.226Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:42:47.485Z [status] Abriendo ERP en productos...
+2026-06-16T07:42:48.800Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:42:49.077Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:42:49.210Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:42:52.798Z [status] Configurando estados del ERP...
+2026-06-16T07:42:52.799Z [status] ERP: Estado ERP -> Listo para venta
+2026-06-16T07:43:00.840Z [status] ERP: Publicar web -> Si
+2026-06-16T07:43:08.963Z [status] ERP: Gestion stock Woo -> Si
+2026-06-16T07:43:09.052Z [status] ERP: Condicion web -> Completo
+2026-06-16T07:43:09.548Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-16T07:43:09.978Z [status] ERP: Region web -> NTSC/JP
+2026-06-16T07:43:10.446Z [status] ERP: Estado impuestos -> taxable
+2026-06-16T07:43:10.955Z [status] Rellenando categoria e informacion web del ERP...
+2026-06-16T07:43:10.955Z [status] ERP: Categoria principal
+2026-06-16T07:43:11.089Z [status] ERP: Marcando categorias
+2026-06-16T07:43:13.834Z [status] ERP: Reaplicando estados finales...
+2026-06-16T07:43:13.835Z [status] ERP: Estado ERP -> Listo para venta
+2026-06-16T07:43:21.892Z [status] ERP: Publicar web -> Si
+2026-06-16T07:43:29.968Z [status] ERP: Gestion stock Woo -> Si
+2026-06-16T07:45:00.902Z [renderer:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+2026-06-16T07:45:00.903Z [diagnostics] {"href":"file:///C:/laragon/www/Pruebas/patrros/programa-subidas/script%20vinted-wallapop/ui/index.html","hasDesktopApp":true,"hasStatusBox":true,"scriptCount":1}
+2026-06-16T07:45:35.514Z [status] Abriendo ERP en productos...
+2026-06-16T07:45:37.115Z [status] Entrando en Web/Venta del ERP...
+2026-06-16T07:45:37.328Z [status] Abriendo nuevo producto en ERP...
+2026-06-16T07:45:37.547Z [status] Rellenando datos generales del ERP...
+2026-06-16T07:45:41.302Z [status] Configurando estados del ERP...
+2026-06-16T07:45:41.303Z [status] ERP: Estado ERP -> Listo para venta
+2026-06-16T07:45:41.325Z [status] ERP: Publicar web -> Si
+2026-06-16T07:45:41.340Z [status] ERP: Gestion stock Woo -> Si
+2026-06-16T07:45:41.354Z [status] ERP: Condicion web -> Incompleto
+2026-06-16T07:45:41.861Z [status] ERP: Grado condicion web -> Muy bueno
+2026-06-16T07:45:42.341Z [status] ERP: Region web -> NTSC/JP
+2026-06-16T07:45:42.831Z [status] ERP: Estado impuestos -> taxable
+2026-06-16T07:45:43.300Z [status] Rellenando categoria e informacion web del ERP...
+2026-06-16T07:45:43.301Z [status] ERP: Categoria principal
+2026-06-16T07:45:43.450Z [status] ERP: Marcando categorias
+2026-06-16T07:45:46.560Z [status] ERP: Reaplicando estados finales...
+2026-06-16T07:45:46.561Z [status] ERP: Estado ERP -> Listo para venta
+2026-06-16T07:45:46.579Z [status] ERP: Publicar web -> Si
+2026-06-16T07:45:46.595Z [status] ERP: Gestion stock Woo -> Si

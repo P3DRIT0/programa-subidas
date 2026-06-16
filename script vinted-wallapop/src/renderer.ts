@@ -23,6 +23,7 @@ type WallapopPayload = {
   brand: string;
   title: string;
   description: string;
+  erpDetailsText: string;
   condition: string;
   price: string;
   stockQuantity: string;
@@ -152,6 +153,7 @@ function getFormData(): WallapopPayload {
     brand: String(formData.get("brand") ?? "").trim(),
     title: String(formData.get("title") ?? "").trim() || readRequiredText(formData, "summary", "Resumen inicial", 3),
     description: readRequiredText(formData, "description", "Descripcion", 10),
+    erpDetailsText: readRequiredText(formData, "erpDetailsText", "Detalles ERP", 3),
     condition: readRequiredText(formData, "condition", "Estado", 2),
     price: readRequiredText(formData, "price", "Precio", 1),
     stockQuantity: readRequiredText(formData, "stockQuantity", "Cantidad en stock", 1),

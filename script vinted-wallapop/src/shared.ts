@@ -168,6 +168,7 @@ export const wallapopFormSchema = z.object({
   brand: z.string().optional(),
   title: z.string().min(3, "El titulo es obligatorio."),
   description: z.string().min(10, "La descripcion es obligatoria."),
+  erpDetailsText: z.string().min(3, "Los detalles del ERP son obligatorios."),
   condition: z.enum(wallapopConditionValues),
   price: z.string().min(1, "El precio es obligatorio."),
   stockQuantity: z.string().min(1, "La cantidad en stock es obligatoria.").default("1"),

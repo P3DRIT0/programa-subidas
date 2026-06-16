@@ -17,6 +17,15 @@ function emitStatus(callback: StatusCallback, message: string) {
   callback(message);
 }
 
+function normalizeSelectText(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
 async function launchErpContext() {
   const userDataDir = getProfileDir();
   type PersistentOptions = Parameters<typeof chromium.launchPersistentContext>[1];
@@ -158,26 +167,224 @@ async function fillField(page: Page, selectors: string[], fallbackLabel: string,
 }
 
 async function selectByLabel(page: Page, label: string, value: string) {
-  const labelLocator = page.locator("label", { hasText: label }).first();
-  if (await labelLocator.isVisible().catch(() => false)) {
-    const select = labelLocator.locator("xpath=following::select[1]").first();
-    if (await select.isVisible().catch(() => false)) {
-      const selected = await forceSelectValue(select, value);
+  const select = await findSelectByLabel(page, label);
+  if (select) {
+    const selected = await forceSelectValue(select, value);
+    if (selected.ok) {
+      return;
+    }
+  }
+}
 
-      if (selected) {
-        return;
+async function findSelectByLabel(page: Page, label: string) {
+  const labelCandidates = [
+    page.locator("label", { hasText: label }).first(),
+    page.getByText(label, { exact: true }).first(),
+  ];
+
+  for (const labelLocator of labelCandidates) {
+    if (!(await labelLocator.isVisible().catch(() => false))) {
+      continue;
+    }
+
+    const nearbyCandidates = [
+      labelLocator.locator("xpath=ancestor::div[1]//select").first(),
+      labelLocator.locator("xpath=ancestor::div[2]//select").first(),
+      labelLocator.locator("xpath=following::select[1]").first(),
+    ];
+
+    for (const select of nearbyCandidates) {
+      if (await select.isVisible().catch(() => false)) {
+        return select;
       }
     }
   }
 
-  const select = page.locator(`select[aria-label*='${label}'], select[name*='${label}']`).first();
-  if (await select.isVisible().catch(() => false)) {
-    const selected = await forceSelectValue(select, value);
+  const attributeCandidate = page.locator(`select[aria-label*='${label}'], select[name*='${label}']`).first();
+  if (await attributeCandidate.isVisible().catch(() => false)) {
+    return attributeCandidate;
+  }
 
-    if (selected) {
-      return;
+  return null;
+}
+
+async function findStateCatalogSelect(page: Page, label: string) {
+  const sectionCandidates = [
+    page.locator("section, div").filter({ hasText: "Estado y catalogo" }).first(),
+    page.locator("section, div").filter({ hasText: "Estado y catálogo" }).first(),
+  ];
+
+  const indexByLabel: Record<string, number> = {
+    "Estado ERP": 0,
+    "Condicion web": 1,
+    "Grado condicion web": 2,
+    "Region web": 3,
+    "Publicar web": 4,
+    "Gestion stock Woo": 5,
+  };
+
+  const desiredIndex = indexByLabel[label];
+  if (desiredIndex === undefined) {
+    return null;
+  }
+
+  for (const section of sectionCandidates) {
+    if (!(await section.isVisible().catch(() => false))) {
+      continue;
+    }
+
+    const selects = section.locator("select");
+    const count = await selects.count().catch(() => 0);
+    if (count > desiredIndex) {
+      const target = selects.nth(desiredIndex);
+      if (await target.isVisible().catch(() => false)) {
+        return target;
+      }
     }
   }
+
+  return null;
+}
+
+async function findStateCatalogSelectByExactLabel(page: Page, label: string) {
+  const sectionCandidates = [
+    page.locator("section, div").filter({ hasText: "Estado y catalogo" }).first(),
+    page.locator("section, div").filter({ hasText: "Estado y catÃ¡logo" }).first(),
+  ];
+
+  for (const section of sectionCandidates) {
+    if (!(await section.isVisible().catch(() => false))) {
+      continue;
+    }
+
+    const labelCandidates = [
+      section.locator(`xpath=.//*[normalize-space(text())="${label}"]`).first(),
+      section.getByText(label, { exact: true }).first(),
+    ];
+
+    for (const labelCandidate of labelCandidates) {
+      if (!(await labelCandidate.isVisible().catch(() => false))) {
+        continue;
+      }
+
+      const selectCandidates = [
+        labelCandidate.locator("xpath=ancestor::div[1]//select[1]").first(),
+        labelCandidate.locator("xpath=ancestor::div[2]//select[1]").first(),
+        labelCandidate.locator("xpath=following::select[1]").first(),
+      ];
+
+      for (const target of selectCandidates) {
+        if (await target.isVisible().catch(() => false)) {
+          return target;
+        }
+      }
+    }
+  }
+
+  return null;
+}
+
+async function setStateCatalogField(page: Page, label: string, value: string) {
+  const select = await findStateCatalogSelectByExactLabel(page, label)
+    ?? await findStateCatalogSelect(page, label);
+
+  if (!select) {
+    throw new Error(`ERP no encontro el select "${label}" dentro de Estado y catalogo.`);
+  }
+
+  const result = await forceSelectValue(select, value);
+  if (result.ok) {
+    return;
+  }
+
+  throw new Error(
+    `ERP no pudo fijar "${label}" a "${value}". Opciones detectadas: ${result.options.join(", ") || "ninguna"}`,
+  );
+}
+
+async function setSelectByExactValue(page: Page, selectors: string[], fallbackLabel: string, optionValue: string) {
+  for (let attempt = 0; attempt < 5; attempt += 1) {
+    const result = await page.evaluate(({ selectorList, nextValue }) => {
+      const candidates = selectorList
+        .flatMap((selector) => Array.from(document.querySelectorAll(selector)))
+        .filter((element): element is HTMLSelectElement => element instanceof HTMLSelectElement);
+
+      const scored = candidates.map((element) => {
+        const rect = element.getBoundingClientRect();
+        const style = window.getComputedStyle(element);
+        const visibleScore = style.display !== "none" && style.visibility !== "hidden" && rect.width > 0 && rect.height > 0
+          ? rect.width * rect.height
+          : -1;
+        return { element, visibleScore };
+      });
+
+      const picked = scored.sort((left, right) => right.visibleScore - left.visibleScore)[0]?.element
+        ?? candidates[candidates.length - 1];
+
+      if (!(picked instanceof HTMLSelectElement)) {
+        return {
+          ok: false,
+          reason: "missing",
+          currentValue: "",
+          options: [] as string[],
+        };
+      }
+
+      const option = Array.from(picked.options).find((item) => item.value === nextValue);
+      if (!option) {
+        return {
+          ok: false,
+          reason: "option-missing",
+          currentValue: picked.value,
+          options: Array.from(picked.options).map((item) => `${item.text.trim()}|${item.value}`),
+        };
+      }
+
+      picked.disabled = false;
+      picked.selectedIndex = option.index;
+      option.selected = true;
+      const descriptor = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, "value");
+      descriptor?.set?.call(picked, nextValue);
+      picked.dispatchEvent(new Event("input", { bubbles: true }));
+      picked.dispatchEvent(new Event("change", { bubbles: true }));
+      picked.dispatchEvent(new Event("blur", { bubbles: true }));
+
+      return {
+        ok: picked.value === nextValue,
+        reason: "",
+        currentValue: picked.value,
+        options: Array.from(picked.options).map((item) => `${item.text.trim()}|${item.value}`),
+      };
+    }, { selectorList: selectors, nextValue: optionValue }).catch(() => ({
+      ok: false,
+      reason: "evaluate-error",
+      currentValue: "",
+      options: [] as string[],
+    }));
+
+    if (result.ok) {
+      return;
+    }
+
+    if (result.reason === "option-missing") {
+      throw new Error(
+        `ERP no pudo fijar "${fallbackLabel}" con value "${optionValue}". Opciones detectadas: ${result.options.join(", ") || "ninguna"}`,
+      );
+    }
+
+    await page.waitForTimeout(250);
+  }
+
+  throw new Error(`ERP no pudo fijar "${fallbackLabel}" con value "${optionValue}".`);
+}
+
+async function enforceErpStateCatalogDefaults(page: Page, status: StatusCallback) {
+  emitStatus(status, "ERP: Estado ERP -> Listo para venta");
+  await setSelectByExactValue(page, ["#erpState", "select[name='erpState']"], "Estado ERP", "sale_ready");
+  emitStatus(status, "ERP: Publicar web -> Si");
+  await setSelectByExactValue(page, ["#publishToWeb", "select[name='publishToWeb']"], "Publicar web", "true");
+  emitStatus(status, "ERP: Gestion stock Woo -> Si");
+  await setSelectByExactValue(page, ["#manageStockInWoo", "select[name='manageStockInWoo']"], "Gestion stock Woo", "true");
 }
 
 async function forceSelectValue(select: Locator, desiredValue: string) {
@@ -186,11 +393,23 @@ async function forceSelectValue(select: Locator, desiredValue: string) {
       return { value: "", label: "", options: [] as string[] };
     }
 
-    const normalize = (text: string) => text.trim().toLowerCase();
+    const normalize = (text: string) => text
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .toLowerCase();
     const expected = normalize(rawDesiredValue);
     const options = Array.from(element.options).map((item) => `${item.text.trim()}|${item.value}`);
     const option = Array.from(element.options).find((item) => {
-      return normalize(item.text) === expected || normalize(item.value) === expected;
+      const normalizedText = normalize(item.text);
+      const normalizedValue = normalize(item.value);
+      return (
+        normalizedText === expected ||
+        normalizedValue === expected ||
+        normalizedText.includes(expected) ||
+        expected.includes(normalizedText)
+      );
     });
 
     if (!option) {
@@ -239,7 +458,93 @@ async function forceSelectValue(select: Locator, desiredValue: string) {
   };
 }
 
+async function verifySelectLabel(select: Locator, expectedLabels: string[]) {
+  const expected = expectedLabels.map((label) => normalizeSelectText(label));
+  const selectedLabel = await select.evaluate((element) => {
+    if (!(element instanceof HTMLSelectElement)) {
+      return "";
+    }
+    return element.selectedOptions[0]?.text?.trim() ?? "";
+  }).catch(() => "");
+
+  const normalizedSelected = normalizeSelectText(selectedLabel);
+  return expected.some((label) => normalizedSelected === label || normalizedSelected.includes(label) || label.includes(normalizedSelected));
+}
+
+async function setAndVerifySelectField(
+  page: Page,
+  selectors: string[],
+  fallbackLabel: string,
+  expectedValue: string,
+  acceptedLabels: string[] = [expectedValue],
+) {
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    await selectField(page, selectors, fallbackLabel, expectedValue);
+
+    for (const selector of selectors) {
+      const select = page.locator(selector).first();
+      if (await select.isVisible().catch(() => false)) {
+        const verified = await verifySelectLabel(select, acceptedLabels);
+        if (verified) {
+          return;
+        }
+      }
+    }
+
+    await page.waitForTimeout(300);
+  }
+
+  throw new Error(`ERP no pudo dejar "${fallbackLabel}" en "${acceptedLabels.join('" o "')}".`);
+}
+
+async function selectFieldFromVariants(
+  page: Page,
+  selectors: string[],
+  fallbackLabel: string,
+  variants: string[],
+) {
+  for (const variant of variants) {
+    try {
+      await selectField(page, selectors, fallbackLabel, variant);
+      return;
+    } catch {
+      // Probamos con la siguiente variante disponible en el ERP.
+    }
+  }
+
+  throw new Error(`ERP no pudo fijar "${fallbackLabel}". Variantes probadas: ${variants.join(", ")}.`);
+}
+
+async function selectAffirmativeField(page: Page, selectors: string[], fallbackLabel: string) {
+  const affirmativeValues = ["Si", "Sí", "Yes", "1", "true"];
+
+  for (const desiredValue of affirmativeValues) {
+    try {
+      await setAndVerifySelectField(page, selectors, fallbackLabel, desiredValue, ["Si", "Sí", "Yes"]);
+      return;
+    } catch {
+      // Probamos con la siguiente variante afirmativa disponible en el ERP.
+    }
+  }
+
+  throw new Error(`ERP no pudo fijar "${fallbackLabel}" a un valor afirmativo.`);
+}
+
 async function selectField(page: Page, selectors: string[], fallbackLabel: string, value: string) {
+  if (fallbackLabel === "Estado ERP" || fallbackLabel === "Publicar web") {
+    const stateCatalogSelect = await findStateCatalogSelectByExactLabel(page, fallbackLabel)
+      ?? await findStateCatalogSelect(page, fallbackLabel);
+    if (stateCatalogSelect) {
+      const result = await forceSelectValue(stateCatalogSelect, value);
+      if (result.ok) {
+        return;
+      }
+      throw new Error(
+        `ERP no pudo fijar "${fallbackLabel}" a "${value}" en Estado y catalogo. Opciones detectadas: ${result.options.join(", ") || "ninguna"}`,
+      );
+    }
+  }
+
   for (const selector of selectors) {
     const select = page.locator(selector).first();
     if (await select.isVisible().catch(() => false)) {
@@ -257,8 +562,8 @@ async function selectField(page: Page, selectors: string[], fallbackLabel: strin
 
   await selectByLabel(page, fallbackLabel, value);
 
-  const fallbackSelect = page.locator(`select[aria-label*='${fallbackLabel}'], select[name*='${fallbackLabel}']`).first();
-  if (await fallbackSelect.isVisible().catch(() => false)) {
+  const fallbackSelect = await findSelectByLabel(page, fallbackLabel);
+  if (fallbackSelect) {
     const result = await forceSelectValue(fallbackSelect, value);
     if (result.ok) {
       return;
@@ -430,15 +735,26 @@ async function selectErpCategoryTree(page: Page, data: WallapopFormData) {
   const leafCategoryName = getErpLeafCategoryName(data.category);
   const platformLabel = data.vintedPlatform ? vintedPlatformLabels[data.vintedPlatform] : "";
   const erpPlatformName = platformLabel ? getErpPlatformCategoryName(platformLabel) : inferErpCategory(data);
+  const parentCategoryName = inferErpCategory(data);
 
   if (await searchInput.isVisible().catch(() => false)) {
     await searchInput.scrollIntoViewIfNeeded().catch(() => undefined);
     await searchInput.fill("");
+    await searchInput.fill(parentCategoryName);
+    await page.waitForTimeout(400);
+  }
+
+  const parentSelected = await clickCategoryCheckboxByLabel(page, parentCategoryName);
+
+  if (await searchInput.isVisible().catch(() => false)) {
+    await searchInput.fill("").catch(() => undefined);
     await searchInput.fill(erpPlatformName);
     await page.waitForTimeout(400);
   }
 
-  const branchSelected = await clickCategoryCheckboxByLabel(page, erpPlatformName);
+  const branchSelected = erpPlatformName === parentCategoryName
+    ? parentSelected
+    : await clickCategoryCheckboxByLabel(page, erpPlatformName);
   const leafSelected = await clickCategoryCheckboxByLabel(page, leafCategoryName);
 
   if (await searchInput.isVisible().catch(() => false)) {
@@ -449,8 +765,12 @@ async function selectErpCategoryTree(page: Page, data: WallapopFormData) {
     throw new Error(`ERP no pudo marcar la categoria del arbol para "${erpPlatformName}" -> "${leafCategoryName}".`);
   }
 
+  if (!parentSelected) {
+    await clickCategoryCheckboxByLabel(page, parentCategoryName).catch(() => undefined);
+  }
+
   if (!branchSelected && data.category !== "videojuegos") {
-    await clickCategoryCheckboxByLabel(page, inferErpCategory(data)).catch(() => undefined);
+    await clickCategoryCheckboxByLabel(page, parentCategoryName).catch(() => undefined);
   }
 }
 
@@ -494,12 +814,9 @@ async function fillErpForm(page: Page, data: WallapopFormData, status: StatusCal
   await page.locator("#name, input[name='name']").first().waitFor({ state: "visible", timeout: 15000 });
 
   const productName = data.title || data.summary;
-  const platformLabel = data.vintedPlatform ? vintedPlatformLabels[data.vintedPlatform] : "";
-  const introDetails = platformLabel ? `${productName} - ${platformLabel}` : productName;
   const erpWebConditionGrade = inferErpWebConditionGrade(data.condition);
-  const detailsText = [data.description.trim(), platformLabel ? `Plataforma|${platformLabel}` : "", `Estado|${data.condition}`]
-    .filter(Boolean)
-    .join("\n");
+  const introDetails = "Estado";
+  const detailsText = data.erpDetailsText.trim();
 
   emitStatus(status, "Rellenando datos generales del ERP...");
   await fillField(page, ["#name", "input[name='name']"], "Nombre", productName);
@@ -518,18 +835,13 @@ async function fillErpForm(page: Page, data: WallapopFormData, status: StatusCal
   await selectField(page, ["#isComposed", "select[name='isComposed']"], "Producto compuesto", "No");
 
   emitStatus(status, "Configurando estados del ERP...");
-  emitStatus(status, "ERP: Estado ERP -> Listo para la venta");
-  await selectField(page, ["#erpState", "select[name='erpState']"], "Estado ERP", "Listo para la venta");
+  await enforceErpStateCatalogDefaults(page, status);
   emitStatus(status, `ERP: Condicion web -> ${data.erpWebCondition}`);
   await selectField(page, ["#webConditionType", "select[name='webConditionType']"], "Condicion web", data.erpWebCondition);
   emitStatus(status, `ERP: Grado condicion web -> ${erpWebConditionGrade}`);
   await selectField(page, ["#webConditionGrade", "select[name='webConditionGrade']"], "Grado condicion web", erpWebConditionGrade);
   emitStatus(status, `ERP: Region web -> ${data.erpRegion}`);
   await selectField(page, ["#webRegion", "select[name='webRegion']"], "Region web", data.erpRegion);
-  emitStatus(status, "ERP: Publicar web -> Si");
-  await selectField(page, ["#publishToWeb", "select[name='publishToWeb']"], "Publicar web", "Si");
-  emitStatus(status, "ERP: Gestion stock Woo -> Si");
-  await selectField(page, ["#manageStockInWoo", "select[name='manageStockInWoo']"], "Gestion stock Woo", "Si");
   emitStatus(status, "ERP: Estado impuestos -> taxable");
   await selectField(page, ["#taxStatus", "select[name='taxStatus']"], "Estado impuestos", "taxable");
 
@@ -540,6 +852,8 @@ async function fillErpForm(page: Page, data: WallapopFormData, status: StatusCal
   await selectErpCategoryTree(page, data);
   await fillField(page, ["#detailsIntro", "input[name='detailsIntro']"], "Intro detalles", introDetails);
   await fillField(page, ["textarea[name='detailsText']", "#detailsText"], "Detalles (titulo|desc por linea)", detailsText);
+  emitStatus(status, "ERP: Reaplicando estados finales...");
+  await enforceErpStateCatalogDefaults(page, status);
 }
 
 export async function openErpLogin(status: StatusCallback) {
