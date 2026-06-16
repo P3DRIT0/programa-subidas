@@ -76,6 +76,7 @@ const runBothButton = document.querySelector<HTMLButtonElement>("#run-both");
 const statusBox = document.querySelector<HTMLElement>("#status-box");
 const resultBox = document.querySelector<HTMLElement>("#result-box");
 const imageList = document.querySelector<HTMLElement>("#image-list");
+const imageDropzone = document.querySelector<HTMLElement>("#image-dropzone");
 const publishCheckbox = document.querySelector<HTMLInputElement>("#publish");
 
 if (
@@ -90,6 +91,7 @@ if (
   !statusBox ||
   !resultBox ||
   !imageList ||
+  !imageDropzone ||
   !publishCheckbox
 ) {
   throw new Error("No se pudo inicializar la interfaz.");
@@ -99,9 +101,11 @@ const safeForm = form;
 const safeStatusBox = statusBox;
 const safeResultBox = resultBox;
 const safeImageList = imageList;
+const safeImageDropzone = imageDropzone;
 const safePublishCheckbox = publishCheckbox;
-const photoPaths = new Set<string>();
+const photoPaths: string[] = [];
 const desktopBridge = (window as unknown as { desktopApp: DesktopAppApi }).desktopApp;
+let draggedPhotoPath = "";
 
 if (!desktopBridge) {
   safeStatusBox.textContent = "No se pudo conectar la interfaz con Electron.";
@@ -119,14 +123,160 @@ function setResult(message: string, type: "ok" | "error" = "ok") {
   safeResultBox.dataset.type = type;
 }
 
+function getFileName(filePath: string) {
+  return filePath.split(/[/\\]/).pop() ?? filePath;
+}
+
+function toFileUrl(filePath: string) {
+  const normalizedPath = filePath.replace(/\\/g, "/");
+  return encodeURI(`file:///${normalizedPath}`);
+}
+
+function syncDropzoneState() {
+  safeImageDropzone.dataset.empty = photoPaths.length ? "false" : "true";
+}
+
+function addPhotoPaths(paths: string[]) {
+  for (const path of paths) {
+    if (!path || photoPaths.includes(path)) {
+      continue;
+    }
+    photoPaths.push(path);
+  }
+  updateImageList();
+}
+
+function removePhotoPath(pathToRemove: string) {
+  const index = photoPaths.indexOf(pathToRemove);
+  if (index < 0) {
+    return;
+  }
+  photoPaths.splice(index, 1);
+  updateImageList();
+}
+
+function movePhoto(pathToMove: string, targetPath: string) {
+  if (!pathToMove || !targetPath || pathToMove === targetPath) {
+    return;
+  }
+
+  const sourceIndex = photoPaths.indexOf(pathToMove);
+  const targetIndex = photoPaths.indexOf(targetPath);
+  if (sourceIndex < 0 || targetIndex < 0) {
+    return;
+  }
+
+  const [moved] = photoPaths.splice(sourceIndex, 1);
+  photoPaths.splice(targetIndex, 0, moved);
+  updateImageList();
+}
+
+function nudgePhoto(pathToMove: string, direction: -1 | 1) {
+  const sourceIndex = photoPaths.indexOf(pathToMove);
+  if (sourceIndex < 0) {
+    return;
+  }
+
+  const targetIndex = sourceIndex + direction;
+  if (targetIndex < 0 || targetIndex >= photoPaths.length) {
+    return;
+  }
+
+  const [moved] = photoPaths.splice(sourceIndex, 1);
+  photoPaths.splice(targetIndex, 0, moved);
+  updateImageList();
+}
+
 function updateImageList() {
   safeImageList.innerHTML = "";
-  for (const photoPath of photoPaths) {
-    const item = document.createElement("div");
-    item.className = "image-pill";
-    item.textContent = photoPath;
-    safeImageList.appendChild(item);
+
+  if (!photoPaths.length) {
+    safeImageList.innerHTML = '<div class="image-empty">Todavia no has anadido imagenes.</div>';
+    syncDropzoneState();
+    return;
   }
+
+  photoPaths.forEach((photoPath, index) => {
+    const item = document.createElement("article");
+    item.className = "image-card";
+    item.draggable = true;
+    item.dataset.path = photoPath;
+
+    item.addEventListener("dragstart", () => {
+      draggedPhotoPath = photoPath;
+      item.classList.add("dragging");
+    });
+
+    item.addEventListener("dragend", () => {
+      draggedPhotoPath = "";
+      item.classList.remove("dragging");
+    });
+
+    item.addEventListener("dragover", (event) => {
+      event.preventDefault();
+      item.classList.add("drag-target");
+    });
+
+    item.addEventListener("dragleave", () => {
+      item.classList.remove("drag-target");
+    });
+
+    item.addEventListener("drop", (event) => {
+      event.preventDefault();
+      item.classList.remove("drag-target");
+      movePhoto(draggedPhotoPath, photoPath);
+    });
+
+    const badge = document.createElement("span");
+    badge.className = "image-index";
+    badge.textContent = String(index + 1).padStart(2, "0");
+
+    const body = document.createElement("div");
+    body.className = "image-body";
+
+    const preview = document.createElement("img");
+    preview.className = "image-preview";
+    preview.src = toFileUrl(photoPath);
+    preview.alt = getFileName(photoPath);
+    preview.loading = "lazy";
+
+    const name = document.createElement("strong");
+    name.textContent = getFileName(photoPath);
+
+    const path = document.createElement("span");
+    path.textContent = photoPath;
+
+    body.append(preview, badge, name, path);
+
+    const controls = document.createElement("div");
+    controls.className = "image-controls";
+
+    const upButton = document.createElement("button");
+    upButton.type = "button";
+    upButton.className = "image-action";
+    upButton.textContent = "Subir";
+    upButton.disabled = index === 0;
+    upButton.addEventListener("click", () => nudgePhoto(photoPath, -1));
+
+    const downButton = document.createElement("button");
+    downButton.type = "button";
+    downButton.className = "image-action";
+    downButton.textContent = "Bajar";
+    downButton.disabled = index === photoPaths.length - 1;
+    downButton.addEventListener("click", () => nudgePhoto(photoPath, 1));
+
+    const removeButton = document.createElement("button");
+    removeButton.type = "button";
+    removeButton.className = "image-action image-action-danger";
+    removeButton.textContent = "Quitar";
+    removeButton.addEventListener("click", () => removePhotoPath(photoPath));
+
+    controls.append(upButton, downButton, removeButton);
+    item.append(body, controls);
+    safeImageList.appendChild(item);
+  });
+
+  syncDropzoneState();
 }
 
 function readRequiredText(formData: FormData, fieldName: string, label: string, minLength = 1) {
@@ -140,7 +290,7 @@ function readRequiredText(formData: FormData, fieldName: string, label: string, 
 function getFormData(): WallapopPayload {
   const formData = new FormData(safeForm);
 
-  if (!photoPaths.size) {
+  if (!photoPaths.length) {
     throw new Error("Debes seleccionar al menos una foto.");
   }
 
@@ -151,7 +301,7 @@ function getFormData(): WallapopPayload {
     vintedPlatform: String(formData.get("vintedPlatform") ?? "").trim() as WallapopPayload["vintedPlatform"],
     vintedContentRating: String(formData.get("vintedContentRating") ?? "PEGI 3").trim() as WallapopPayload["vintedContentRating"],
     brand: String(formData.get("brand") ?? "").trim(),
-    title: String(formData.get("title") ?? "").trim() || readRequiredText(formData, "summary", "Resumen inicial", 3),
+    title: readRequiredText(formData, "summary", "Resumen inicial", 3),
     description: readRequiredText(formData, "description", "Descripcion", 10),
     erpDetailsText: readRequiredText(formData, "erpDetailsText", "Detalles ERP", 3),
     condition: readRequiredText(formData, "condition", "Estado", 2),
@@ -160,7 +310,7 @@ function getFormData(): WallapopPayload {
     erpRegion: String(formData.get("erpRegion") ?? "Sin definir").trim() as WallapopPayload["erpRegion"],
     erpWebCondition: String(formData.get("erpWebCondition") ?? "Sin definir").trim() as WallapopPayload["erpWebCondition"],
     weight: String(formData.get("weight") ?? defaultWeight).trim() as WallapopWeight,
-    photoPaths: Array.from(photoPaths),
+    photoPaths: [...photoPaths],
     publish: safePublishCheckbox.checked,
   };
 }
@@ -168,15 +318,35 @@ function getFormData(): WallapopPayload {
 pickImagesButton.addEventListener("click", async () => {
   try {
     const selectedPaths = await desktopBridge.pickImages();
-    for (const selectedPath of selectedPaths) {
-      photoPaths.add(selectedPath);
-    }
-    updateImageList();
-    setStatus(`${photoPaths.size} imagen(es) seleccionadas.`);
+    addPhotoPaths(selectedPaths);
+    setStatus(`${photoPaths.length} imagen(es) seleccionadas.`);
   } catch (error) {
     const message = error instanceof Error ? error.message : "No se pudieron seleccionar las imagenes.";
     setResult(message, "error");
   }
+});
+
+safeImageDropzone.addEventListener("dragover", (event) => {
+  event.preventDefault();
+  safeImageDropzone.classList.add("is-active");
+});
+
+safeImageDropzone.addEventListener("dragleave", () => {
+  safeImageDropzone.classList.remove("is-active");
+});
+
+safeImageDropzone.addEventListener("drop", (event) => {
+  event.preventDefault();
+  safeImageDropzone.classList.remove("is-active");
+  const droppedFiles = Array.from(event.dataTransfer?.files ?? [])
+    .map((file) => {
+      const fileWithPath = file as File & { path?: string };
+      return fileWithPath.path ?? "";
+    })
+    .filter(Boolean);
+
+  addPhotoPaths(droppedFiles);
+  setStatus(`${photoPaths.length} imagen(es) listas para subir.`);
 });
 
 loginButton.addEventListener("click", async () => {
@@ -289,3 +459,4 @@ desktopBridge.onStatus((message: string) => {
 });
 
 setStatus("Prepara los datos del producto y lanza la automatizacion.");
+updateImageList();

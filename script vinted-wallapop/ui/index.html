@@ -13,225 +13,261 @@
           <p class="eyebrow">Escritorio + automatizacion</p>
           <h1>Publicador Wallapop</h1>
           <p class="hero-copy">
-            Primera base para subir productos sin API usando navegador real y una sesion guardada.
+            Sube productos a Wallapop, Vinted y ERP desde una sola ficha, con sesion guardada y flujo real en navegador.
           </p>
         </div>
         <div class="hero-actions">
-          <button id="open-login" type="button" class="secondary-button">
-            Login Wallapop
-          </button>
-          <button id="open-vinted-login" type="button" class="secondary-button">
-            Login Vinted
-          </button>
-          <button id="open-erp-login" type="button" class="secondary-button">
-            Login ERP
-          </button>
+          <button id="open-login" type="button" class="secondary-button">Login Wallapop</button>
+          <button id="open-vinted-login" type="button" class="secondary-button">Login Vinted</button>
+          <button id="open-erp-login" type="button" class="secondary-button">Login ERP</button>
         </div>
       </section>
 
       <section class="panel">
-        <h2>Datos del anuncio</h2>
-        <form id="wallapop-form" class="form-grid">
-          <label>
-            Resumen inicial
-            <input
-              name="summary"
-              type="text"
-              maxlength="50"
-              placeholder="Ej. Final Fantasy VI SNES Japon"
-              required
-            />
-          </label>
-
-          <label>
-            Ruta de categoria
-            <select name="category" required>
-              <option value="videojuegos">Videojuegos</option>
-              <option value="consolas">Consolas</option>
-              <option value="accesorios-consolas">Accesorios y recambios de consolas</option>
-            </select>
-          </label>
-
-          <label>
-            Marca
-            <input name="brand" type="text" placeholder="Ej. Square" />
-          </label>
-
-          <label>
-            Plataforma Vinted
-            <select name="vintedPlatform">
-              <option value="">Selecciona una plataforma</option>
-              <option value="8575">Acer Nitro Blaze 11</option>
-              <option value="8573">Acer Nitro Blaze 7</option>
-              <option value="8574">Acer Nitro Blaze 8</option>
-              <option value="1259">Asus ROG Ally</option>
-              <option value="8576">Asus ROG Ally X</option>
-              <option value="8577">Asus ROG Xbox Ally</option>
-              <option value="1260">Atari</option>
-              <option value="1261">Ayaneo</option>
-              <option value="1262">Commodore</option>
-              <option value="1263">Lenovo Legion Go</option>
-              <option value="8579">MSI Claw 7 AI+</option>
-              <option value="8580">MSI Claw 8 AI+</option>
-              <option value="8578">MSI Claw A1M</option>
-              <option value="8581">MSI Claw A8</option>
-              <option value="1264">Nintendo 2DS</option>
-              <option value="1265">Nintendo 3DS</option>
-              <option value="1266">Nintendo 64</option>
-              <option value="1267">Nintendo DS</option>
-              <option value="1268">Nintendo Entertainment System</option>
-              <option value="1269">Nintendo Game Boy</option>
-              <option value="1270">Nintendo Game Boy Advance</option>
-              <option value="1272">Nintendo GameCube</option>
-              <option value="1273">Nintendo Switch</option>
-              <option value="6478">Nintendo Switch 2</option>
-              <option value="1274">Nintendo Wii</option>
-              <option value="1275">Nintendo Wii U</option>
-              <option value="1276">PC y Mac</option>
-              <option value="1277">PlayStation 1</option>
-              <option value="1278">PlayStation 2</option>
-              <option value="1279">PlayStation 3</option>
-              <option value="1280">PlayStation 4</option>
-              <option value="1281">PlayStation 5</option>
-              <option value="8582">PlayStation 5 Pro</option>
-              <option value="1282">PlayStation Portable</option>
-              <option value="8583">PlayStation Portal</option>
-              <option value="1283">PlayStation Vita</option>
-              <option value="1284">Sega Dreamcast</option>
-              <option value="1285">Sega Mega Drive</option>
-              <option value="1286">Steam Deck</option>
-              <option value="1287">Super Nintendo</option>
-              <option value="1288">Xbox (original)</option>
-              <option value="1289">Xbox 360</option>
-              <option value="8584">Xbox Ally X</option>
-              <option value="1290">Xbox One</option>
-              <option value="1291">Xbox Series S y X</option>
-              <option value="8585">Zotac Gaming Zone</option>
-            </select>
-          </label>
-
-          <label>
-            Estado
-            <select name="condition" required>
-              <option value="Como nuevo">Como nuevo</option>
-              <option value="Sin abrir">Sin abrir</option>
-              <option value="En su caja">En su caja</option>
-              <option value="Nuevo">Nuevo</option>
-              <option value="En buen estado">En buen estado</option>
-              <option value="En condiciones aceptables">En condiciones aceptables</option>
-              <option value="Lo ha dado todo">Lo ha dado todo</option>
-            </select>
-          </label>
-
-          <label>
-            Clasificación Vinted
-            <select name="vintedContentRating">
-              <option value="PEGI 3">PEGI 3</option>
-              <option value="PEGI 12">PEGI 12</option>
-              <option value="PEGI 16">PEGI 16</option>
-              <option value="PEGI 18">PEGI 18</option>
-              <option value="E - Todos los públicos">E - Todos los públicos</option>
-              <option value="E10+ - Mayores de 10 años">E10+ - Mayores de 10 años</option>
-              <option value="M - Mayores de 17 años">M - Mayores de 17 años</option>
-              <option value="AO - Solo adultos">AO - Solo adultos</option>
-            </select>
-          </label>
-
-          <label>
-            Titulo
-            <input name="title" type="text" placeholder="Si lo dejas vacio, usare el resumen inicial" />
-          </label>
-
-          <label>
-            Precio
-            <input name="price" type="text" inputmode="decimal" placeholder="59.95" required />
-          </label>
-
-          <label>
-            Cantidad en stock
-            <input name="stockQuantity" type="text" inputmode="numeric" placeholder="1" required />
-          </label>
-
-          <label>
-            Region web ERP
-            <select name="erpRegion">
-              <option value="Sin definir">Sin definir</option>
-              <option value="NTSC/JP">NTSC/JP</option>
-              <option value="NTSC/USA">NTSC/USA</option>
-              <option value="PAL/AUS">PAL/AUS</option>
-              <option value="PAL/CH">PAL/CH</option>
-              <option value="PAL/DE">PAL/DE</option>
-              <option value="PAL/ES">PAL/ES</option>
-              <option value="PAL/EU">PAL/EU</option>
-              <option value="PAL/FR">PAL/FR</option>
-              <option value="PAL/IT">PAL/IT</option>
-              <option value="PAL/NL">PAL/NL</option>
-              <option value="PAL/PT">PAL/PT</option>
-              <option value="PAL/UK">PAL/UK</option>
-            </select>
-          </label>
-
-          <label>
-            Condicion web ERP
-            <select name="erpWebCondition">
-              <option value="Sin definir">Sin definir</option>
-              <option value="Completo">Completo</option>
-              <option value="Incompleto">Incompleto</option>
-              <option value="Sellado">Sellado</option>
-              <option value="Solo juego">Solo juego</option>
-              <option value="Nuevo">Nuevo</option>
-            </select>
-          </label>
-
-          <label class="full-width">
-            Descripcion
-            <textarea
-              name="description"
-              rows="6"
-              placeholder="Describe el producto con el maximo detalle posible"
-              required
-            ></textarea>
-          </label>
-
-          <label class="full-width">
-            Detalles ERP (titulo|desc por linea)
-            <textarea
-              name="erpDetailsText"
-              rows="6"
-              placeholder="Ej. Plataforma|Nintendo Switch&#10;Idioma|Castellano&#10;Estado|Como nuevo"
-              required
-            ></textarea>
-          </label>
-
-          <label>
-            Peso del envio
-            <select name="weight" required>
-              <option value="0 a 1 kg">0 a 1 kg</option>
-              <option value="1 a 2 kg">1 a 2 kg</option>
-              <option value="2 a 5 kg">2 a 5 kg</option>
-              <option value="5 a 10 kg">5 a 10 kg</option>
-              <option value="10 a 20 kg">10 a 20 kg</option>
-              <option value="20 a 30 kg">20 a 30 kg</option>
-            </select>
-          </label>
-
-          <div class="full-width image-section">
-            <div class="section-heading">
-              <span>Fotos del producto</span>
-              <button id="pick-images" type="button" class="secondary-button">
-                Seleccionar imagenes
-              </button>
-            </div>
-            <p class="hint">Acepta `webp`, `jpg`, `jpeg` y `png`.</p>
-            <div id="image-list" class="image-list"></div>
+        <div class="panel-head">
+          <div>
+            <h2>Datos del anuncio</h2>
+            <p class="panel-copy">Completa la ficha una vez y deja listo el contenido para las tres plataformas.</p>
           </div>
+        </div>
 
-          <label class="toggle">
-            <input id="publish" name="publish" type="checkbox" />
-            <span>Publicar automaticamente al final</span>
-          </label>
+        <form id="wallapop-form" class="form-grid">
+          <section class="form-section form-section-hero full-width">
+            <div class="form-section-heading">
+              <p class="section-kicker">Titulo</p>
+              <h3>Base del anuncio</h3>
+              <p>Este texto se usa como titulo maestro en Wallapop, Vinted y ERP.</p>
+            </div>
+            <div class="form-block-grid form-block-grid-single">
+              <label class="full-width">
+                Resumen inicial
+                <input
+                  name="summary"
+                  type="text"
+                  maxlength="50"
+                  placeholder="Ej. Final Fantasy VI SNES Japon"
+                  required
+                />
+                <span class="field-note">Piensalo como el titulo principal del producto.</span>
+              </label>
+            </div>
+          </section>
 
-          <div class="full-width action-row">
+          <section class="form-section full-width">
+            <div class="form-section-heading">
+              <p class="section-kicker">Producto</p>
+              <h3>Ficha principal</h3>
+              <p>Los datos base para precio, categoria y estado del producto.</p>
+            </div>
+            <div class="form-block-grid">
+              <label>
+                Ruta de categoria
+                <select name="category" required>
+                  <option value="videojuegos">Videojuegos</option>
+                  <option value="consolas">Consolas</option>
+                  <option value="accesorios-consolas">Accesorios y recambios de consolas</option>
+                </select>
+              </label>
+
+              <label>
+                Marca
+                <input name="brand" type="text" placeholder="Ej. Square" />
+              </label>
+
+              <label>
+                Estado
+                <select name="condition" required>
+                  <option value="Como nuevo">Como nuevo</option>
+                  <option value="Sin abrir">Sin abrir</option>
+                  <option value="En su caja">En su caja</option>
+                  <option value="Nuevo">Nuevo</option>
+                  <option value="En buen estado">En buen estado</option>
+                  <option value="En condiciones aceptables">En condiciones aceptables</option>
+                  <option value="Lo ha dado todo">Lo ha dado todo</option>
+                </select>
+              </label>
+
+              <label>
+                Precio
+                <input name="price" type="text" inputmode="decimal" placeholder="59.95" required />
+              </label>
+
+              <label>
+                Cantidad en stock
+                <input name="stockQuantity" type="text" inputmode="numeric" placeholder="1" required />
+              </label>
+
+              <label>
+                Peso del envio
+                <select name="weight" required>
+                  <option value="0 a 1 kg">0 a 1 kg</option>
+                  <option value="1 a 2 kg">1 a 2 kg</option>
+                  <option value="2 a 5 kg">2 a 5 kg</option>
+                  <option value="5 a 10 kg">5 a 10 kg</option>
+                  <option value="10 a 20 kg">10 a 20 kg</option>
+                  <option value="20 a 30 kg">20 a 30 kg</option>
+                </select>
+              </label>
+
+              <label class="full-width">
+                Descripcion
+                <textarea
+                  name="description"
+                  rows="6"
+                  placeholder="Describe el producto con el maximo detalle posible"
+                  required
+                ></textarea>
+              </label>
+            </div>
+          </section>
+
+          <section class="form-section full-width">
+            <div class="form-section-heading">
+              <p class="section-kicker">Vinted</p>
+              <h3>Datos del marketplace</h3>
+              <p>Completa los campos especificos para publicar el mismo producto sin rehacer nada.</p>
+            </div>
+            <div class="form-block-grid">
+              <label>
+                Plataforma Vinted
+                <select name="vintedPlatform">
+                  <option value="">Selecciona una plataforma</option>
+                  <option value="8575">Acer Nitro Blaze 11</option>
+                  <option value="8573">Acer Nitro Blaze 7</option>
+                  <option value="8574">Acer Nitro Blaze 8</option>
+                  <option value="1259">Asus ROG Ally</option>
+                  <option value="8576">Asus ROG Ally X</option>
+                  <option value="8577">Asus ROG Xbox Ally</option>
+                  <option value="1260">Atari</option>
+                  <option value="1261">Ayaneo</option>
+                  <option value="1262">Commodore</option>
+                  <option value="1263">Lenovo Legion Go</option>
+                  <option value="8579">MSI Claw 7 AI+</option>
+                  <option value="8580">MSI Claw 8 AI+</option>
+                  <option value="8578">MSI Claw A1M</option>
+                  <option value="8581">MSI Claw A8</option>
+                  <option value="1264">Nintendo 2DS</option>
+                  <option value="1265">Nintendo 3DS</option>
+                  <option value="1266">Nintendo 64</option>
+                  <option value="1267">Nintendo DS</option>
+                  <option value="1268">Nintendo Entertainment System</option>
+                  <option value="1269">Nintendo Game Boy</option>
+                  <option value="1270">Nintendo Game Boy Advance</option>
+                  <option value="1272">Nintendo GameCube</option>
+                  <option value="1273">Nintendo Switch</option>
+                  <option value="6478">Nintendo Switch 2</option>
+                  <option value="1274">Nintendo Wii</option>
+                  <option value="1275">Nintendo Wii U</option>
+                  <option value="1276">PC y Mac</option>
+                  <option value="1277">PlayStation 1</option>
+                  <option value="1278">PlayStation 2</option>
+                  <option value="1279">PlayStation 3</option>
+                  <option value="1280">PlayStation 4</option>
+                  <option value="1281">PlayStation 5</option>
+                  <option value="8582">PlayStation 5 Pro</option>
+                  <option value="1282">PlayStation Portable</option>
+                  <option value="8583">PlayStation Portal</option>
+                  <option value="1283">PlayStation Vita</option>
+                  <option value="1284">Sega Dreamcast</option>
+                  <option value="1285">Sega Mega Drive</option>
+                  <option value="1286">Steam Deck</option>
+                  <option value="1287">Super Nintendo</option>
+                  <option value="1288">Xbox (original)</option>
+                  <option value="1289">Xbox 360</option>
+                  <option value="8584">Xbox Ally X</option>
+                  <option value="1290">Xbox One</option>
+                  <option value="1291">Xbox Series S y X</option>
+                  <option value="8585">Zotac Gaming Zone</option>
+                </select>
+              </label>
+
+              <label>
+                Clasificacion Vinted
+                <select name="vintedContentRating">
+                  <option value="PEGI 3">PEGI 3</option>
+                  <option value="PEGI 12">PEGI 12</option>
+                  <option value="PEGI 16">PEGI 16</option>
+                  <option value="PEGI 18">PEGI 18</option>
+                  <option value="E - Todos los publicos">E - Todos los publicos</option>
+                  <option value="E10+ - Mayores de 10 anos">E10+ - Mayores de 10 anos</option>
+                  <option value="M - Mayores de 17 anos">M - Mayores de 17 anos</option>
+                  <option value="AO - Solo adultos">AO - Solo adultos</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="form-section full-width">
+            <div class="form-section-heading">
+              <p class="section-kicker">ERP</p>
+              <h3>Datos web y detalle interno</h3>
+              <p>Deja cerrada la ficha web para que el alta final requiera la minima revision posible.</p>
+            </div>
+            <div class="form-block-grid">
+              <label>
+                Region web ERP
+                <select name="erpRegion">
+                  <option value="Sin definir">Sin definir</option>
+                  <option value="NTSC/JP">NTSC/JP</option>
+                  <option value="NTSC/USA">NTSC/USA</option>
+                  <option value="PAL/AUS">PAL/AUS</option>
+                  <option value="PAL/CH">PAL/CH</option>
+                  <option value="PAL/DE">PAL/DE</option>
+                  <option value="PAL/ES">PAL/ES</option>
+                  <option value="PAL/EU">PAL/EU</option>
+                  <option value="PAL/FR">PAL/FR</option>
+                  <option value="PAL/IT">PAL/IT</option>
+                  <option value="PAL/NL">PAL/NL</option>
+                  <option value="PAL/PT">PAL/PT</option>
+                  <option value="PAL/UK">PAL/UK</option>
+                </select>
+              </label>
+
+              <label>
+                Condicion web ERP
+                <select name="erpWebCondition">
+                  <option value="Sin definir">Sin definir</option>
+                  <option value="Completo">Completo</option>
+                  <option value="Incompleto">Incompleto</option>
+                  <option value="Sellado">Sellado</option>
+                  <option value="Solo juego">Solo juego</option>
+                  <option value="Nuevo">Nuevo</option>
+                </select>
+              </label>
+
+              <label class="full-width">
+                Detalles ERP (titulo|desc por linea)
+                <textarea
+                  name="erpDetailsText"
+                  rows="6"
+                  placeholder="Ej. Plataforma|Nintendo Switch&#10;Idioma|Castellano&#10;Estado|Como nuevo"
+                  required
+                ></textarea>
+              </label>
+            </div>
+          </section>
+
+          <section class="form-section full-width">
+            <div class="section-heading">
+              <div class="section-copy">
+                <p class="section-kicker">Fotos</p>
+                <h3>Orden visual del anuncio</h3>
+                <p class="hint">Arrastra archivos, cambia la portada y revisa el orden antes de lanzar la subida.</p>
+              </div>
+              <button id="pick-images" type="button" class="secondary-button">Seleccionar imagenes</button>
+            </div>
+            <div id="image-dropzone" class="image-dropzone" tabindex="0" aria-label="Zona para soltar imagenes">
+              <strong>Suelta aqui las imagenes</strong>
+              <span>Tambien puedes pulsar en "Seleccionar imagenes". Acepta `webp`, `jpg`, `jpeg` y `png`.</span>
+            </div>
+            <div id="image-list" class="image-list"></div>
+          </section>
+
+          <div class="full-width action-bar">
+            <label class="toggle toggle-inline">
+              <input id="publish" name="publish" type="checkbox" />
+              <span>Publicar automaticamente al final</span>
+            </label>
             <button id="run-wallapop" type="submit" class="primary-button">Ejecutar Wallapop</button>
             <button id="run-vinted" type="button" class="secondary-button">Ejecutar Vinted</button>
             <button id="run-erp" type="button" class="secondary-button">Ejecutar ERP</button>
